@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC85Gyy4mB09QCS4TBvOobf19yj40r1Hmc"></script>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marker-animate-unobtrusive/0.2.8/SlidingMarker.min.js"></script>-->
+  </head>
+
+  <body>
+    <%= render "maps/nav_component" %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="list-group">
+            <a href="/bookmarks" class="list-group-item list-group-item-action <%= (request.env['PATH_INFO'] == '/bookmarks') ? 'active' : '' %>">
+              Bookmarks
+            </a>
+            <a href="/profile" class="list-group-item list-group-item-action <%= (request.env['PATH_INFO'] == '/profile') ? 'active' : '' %>">
+              Profile
+            </a>
+            <a href="/users/edit" class="list-group-item list-group-item-action <%= (request.env['PATH_INFO'] == '/users/edit') || (request.env['PATH_INFO'] == '/users') ? 'active' : '' %>">
+              Edit Profile
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "maps/footer_component" %>
+
+  </body>
+</html>

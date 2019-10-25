@@ -1,0 +1,43 @@
+// Place all the styles related to the maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+  height: 90%;
+  margin: 0;
+}
+
+
+nav{
+  background-color: #0037F2;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    /*color: rgba(255,255,255,1);*/
+    color: #ffffff !important;
+}
+
+
+
+
+#map {
+  height: 91%;
+  width: 100%;
+  background: #AADAFF;
+ }
+
+.gold-star{
+  color: gold;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 65px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #AADAFF;
+  color: #ffffff;
+}

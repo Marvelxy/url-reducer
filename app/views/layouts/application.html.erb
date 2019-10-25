@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC85Gyy4mB09QCS4TBvOobf19yj40r1Hmc&libraries=places"></script>-->
+  <!--
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC85Gyy4mB09QCS4TBvOobf19yj40r1Hmc"></script>
+-->
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/marker-animate-unobtrusive/0.2.8/vendor/markerAnimate.js"></script>-->
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marker-animate-unobtrusive/0.2.8/SlidingMarker.min.js"></script>-->
+    <%= javascript_pack_tag 'hello_react' %>
+  </head>
+
+  <body>
+    <%= render "maps/nav_component" %>
+
+    <%= yield %>
+
+    <%= render "maps/footer_component" %>
+  </body>
+</html>

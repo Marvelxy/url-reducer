@@ -1,0 +1,6 @@
+<h3 class="text-center">Profile</h3>
+<div class="">
+  <p><b>Username</b>: <%= current_user.username.blank? ? 'Not added' : current_user.username %></p>
+  <p><b>Email</b>: <%= current_user.email %></p>
+  <p><a href="/users/edit">Edit profile</a></p>
+</div>

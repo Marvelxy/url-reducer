@@ -1,0 +1,23 @@
+{
+  "name": "mapapp",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@rails/webpacker": "3.4",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "jquery-ujs": "^1.2.2",
+    "marker-animate-unobtrusive": "^0.2.8",
+    "popper.js": "^1.15.0",
+    "prop-types": "^15.7.2",
+    "rails-ujs": "^5.2.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react_ujs": "^2.6.0",
+    "turbolinks": "^5.2.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

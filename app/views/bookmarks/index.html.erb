@@ -1,0 +1,133 @@
+<h3 class="text-center mb-3 bookmark-header">BOOKMARKS LIST</h3>
+<div class="row justify-content-center">
+  <% @bookmarks.each do |bookmark|  %>
+    <div class="col-8 col-sm-8 col-md-5 col-lg-5 m-3 p-1 bookmarks border">
+      <h5 class="text-center"><%= bookmark.title %></h5>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Review:
+          <span class="badge badge-pill font-weight-light">
+            <% case bookmark.review_stars.to_i %>
+              <% when 5 %>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <!--<a class="rate-location btn-sm" bookmark_id="<%= bookmark.id %>">
+                  <i class="far fa-edit"></i>
+                </a>-->
+              <% when 4 %>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <!--<a class="rate-location btn-sm" bookmark_id="<%= bookmark.id %>">
+                  <i class="far fa-edit"></i>
+                </a>-->
+              <% when 3 %>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <!--<a class="rate-location btn-sm" bookmark_id="<%= bookmark.id %>">
+                  <i class="far fa-edit"></i>
+                </a>-->
+              <% when 2 %>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <!--<a class="rate-location btn-sm" bookmark_id="<%= bookmark.id %>">
+                  <i class="far fa-edit"></i>
+                </a>-->
+              <% when 1 %>
+                <a><i class="fas fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <a><i class="far fa-star gold-star"></i></a>
+                <!--<a class="rate-location btn-sm" bookmark_id="<%= bookmark.id %>">
+                  <i class="far fa-edit"></i>
+                </a>-->
+              <% else %>
+                (Not yet rated)
+            <% end %>
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Category:
+          <span class="badge badge-pill font-weight-light"><%= bookmark.name %></span>
+        </li>
+        <li class="list-group-item d-flex">
+          <div>Note:</div>&nbsp;
+          <div class="font-weight-light"> <%= bookmark.note %></div>
+        </li>
+      </ul>
+      <div>
+        <% if bookmark.review_stars.to_i > 0 %>
+          <a href="#" class="rate-location btn btn-sm btn-light m-1 float-left text-primary" bookmark_id="<%= bookmark.id %>">
+            <i class="far fa-star"></i> Edit Rating
+          </a>
+        <% else %>
+          <a href="#" class="rate-location btn btn-sm btn-light m-1 float-left text-primary" bookmark_id="<%= bookmark.id %>">
+            <i class="far fa-star"></i> Rate
+          </a>
+        <% end %>
+
+        <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-light m-1 float-right text-danger" do %>
+          <i class="fa fa-trash-alt"></i> Delete
+        <% end %>
+
+        <!--<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-light m-1 float-right text-info editBookmarkButton" do %>
+          <i class="fa fa-edit"></i> Edit
+        <% end %>-->
+
+        <a href="#" class="btn btn-sm btn-light m-1 float-right text-info editBookmarkButton" bookmark_id="<%= bookmark.id %>" title="<%= bookmark.title %>" note="<%= bookmark.note %>" location="<%= bookmark.geolocation %>" >
+          <i class="fa fa-edit"></i> Edit
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<!-- Modals and other hidden page elements related to this page -->
+
+<!--Rate Bookmark modal -->
+<div class="modal fade" id="rate-and-edit-ratings-modal" tabindex="-1" role="dialog" aria-labelledby="rate-and-edit-ratings-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rate-and-edit-ratings-modal">EDIT REVIEW</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <%= form_for(:bookmark, remote: true) do |f| %>
+                    <%= f.hidden_field :id, class: 'form-control form-control-sm', id: 'bookmark_id' %>
+                    <div class="row">
+                        <div class="col col-lg-2"></div>
+                        <div class="col col-lg-8">
+                            <div class="mb-2">
+                                <%= f.label :review_stars %>:
+
+                                <%= f.select(:review_stars, [1,2,3,4,5], {:include_blank => '-Select number or stars-'}, {class: 'form-control form-control-sm', id: 'review_stars'})  %>
+                            </div>
+
+                            <div class="mb-2 text-center">
+                                <%= f.button 'SUBMIT RATING', class: 'btn btn-primary form-control-sm', id: 'rate-location' %>
+                            </div>
+                        </div>
+                        <div class="col col-lg-2"></div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
