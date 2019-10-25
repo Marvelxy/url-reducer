@@ -38,6 +38,23 @@ nav{
   width: 100%;
 }
 
+.down-angle-icon{
+  /*background-color: #B5B5BB;*/
+  color: #676DA4;
+  text-align: center;
+  width: 30px;
+  border-radius: 46%;
+}
+
+.down-angle-icon:hover{
+  background-color: #676DA4;
+  color: #ffffff;
+  text-align: center;
+  width: 30px;
+  border-radius: 46%;
+}
+
+
 #map {
   height: 89.6%;
   width: 100%;
