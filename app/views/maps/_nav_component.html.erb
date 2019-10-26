@@ -1,3 +1,4 @@
+<span id="container_fluid"></span>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a href='/'>
@@ -34,10 +35,10 @@
               <i class="fas fa-search"></i> Search
             </button>
           </div>-->
-          <a href="/" class="nav-link">Reduce URL</a>
+          <a href="#container_fluid" class="nav-link" id="reduce_url_link">Reduce URL</a>
         </li>
         <li class="nav-item">
-          <a href="#how_it_works" class="nav-link">How it works</a>
+          <a href="#how_it_works" class="nav-link" id="how_it_works_link">How it works</a>
         </li>
 
         <% if user_signed_in? %>
