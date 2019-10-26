@@ -16,45 +16,29 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <% if request.env['PATH_INFO'] === '/' %>
-          <li class="nav-item">
-            <!--<div class="form-inline my-0 my-lg-0 form-label-group">
-              <select class="form-control-lg custom-select" id="searchType">
-                <option value="">Address search</option>
-                <option value="">Location search</option>
-              </select>
+        <li class="nav-item">
+          <!--<div class="form-inline my-0 my-lg-0 form-label-group">
+            <select class="form-control-lg custom-select" id="searchType">
+              <option value="">Address search</option>
+              <option value="">Location search</option>
+            </select>
 
-              <!--
-              <label for="searchLocation">Latitude, Longitude</label>
-              <input class="form-control" id="searchLocation" type="search" placeholder="Latitude, Longitude" aria-label="Search" required="required">
-              -->
-              <!--
-              <input class="form-control" id="searchLocation" type="text" placeholder="Latitude, Longitude" aria-label="Search" required>
+            <!--
+            <label for="searchLocation">Latitude, Longitude</label>
+            <input class="form-control" id="searchLocation" type="search" placeholder="Latitude, Longitude" aria-label="Search" required="required">
+            -->
+            <!--
+            <input class="form-control" id="searchLocation" type="text" placeholder="Latitude, Longitude" aria-label="Search" required>
 
-              <button class="btn btn-success mr-5" id="locationSearch">
-                <i class="fas fa-search"></i> Search
-              </button>
-            </div>-->
-
-            <form>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <select class="form-control custom-select" id="mapSearch">
-                    <option selected>--SELECT--</option>
-                    <!--<option value="addressSearch">Address search</option>-->
-                    <option value="locationSearch">Location search</option>
-                  </select>
-                </div>
-                  <input class="form-control" id="searchText" type="text" placeholder="--SELECT SEARCH TYPE--" aria-label="Search" required>
-
-
-                <button class="btn btn-success mr-5" id="searchButton" type="submit">
-                  <i class="fas fa-search"></i> Search
-                </button>
-              </div>
-            </form>
-          </li>
-        <% end %>
+            <button class="btn btn-success mr-5" id="locationSearch">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>-->
+          <a href="/" class="nav-link">Reduce URL</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">How it works</a>
+        </li>
 
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
