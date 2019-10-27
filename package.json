@@ -13,6 +13,7 @@
     "prop-types": "^15.7.2",
     "rails-ujs": "^5.2.3",
     "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",
     "react-scroll": "^1.7.14",
     "react_ujs": "^2.6.0",

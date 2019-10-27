@@ -33,14 +33,9 @@
       <%= render "maps/nav_component" %>
       <div class="reduce-url">
         <div class="container h-100">
-          <div class="row h-100 justify-content-center align-items-center" >
+          <div class="row h-100 justify-content-center align-items-center">
             <div class="col-lg-8">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control form-control-lg" placeholder="Enter long URL" aria-label="Enter long URL" aria-describedby="basic-addon2" style="background-color:#ffffff;">
-                <div class="input-group-append">
-                  <button type="button" name="button" class="btn btn-light" style="color: #676DA4; font-size: 1.5rem; font-weight: 400;">Reduce</button>
-                </div>
-              </div>
+              <%= react_component 'Reduce' %>
             </div>
           </div>
         </div>
