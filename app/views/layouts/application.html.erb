@@ -28,9 +28,23 @@
   </head>
 
   <body>
+    <span id="container_fluid"></span>
     <div style="height: 91.2vh;">
       <%= render "maps/nav_component" %>
-      <div class="reduce-url"></div>
+      <div class="reduce-url">
+        <div class="container">
+          <div class="row justify-content-center pt-5">
+            <div class="col-lg-8">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">@example.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <%= react_component 'Scroll' %>
     </div>
