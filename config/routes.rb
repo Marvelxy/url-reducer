@@ -26,4 +26,9 @@ Rails.application.routes.draw do
 	get 'check-auth' => 'users#is_login'
   get 'profile' => 'users#profile'
 
+
+
+  # New routes
+  post 'reduce-url', to: 'reducers#reduce_url'
+
 end

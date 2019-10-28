@@ -6,6 +6,7 @@ class Reduce extends React.Component {
     super(props);
     this.state = {
       url: '',
+      reduced_url: {},
       spinner: false
     }
   }
@@ -33,20 +34,20 @@ class Reduce extends React.Component {
 
   reduce = () => {
     this.showSpinner();
-    const BASE_URL = 'localhost:3000/bookmarks.json';
-    fetch('/bookmarks.json', {
-      method: 'GET',
+    const BASE_URL = 'localhost:3000/reduce_url';
+    fetch('/reduce-url.json', {
+      method: 'POST',
       credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json'
         // 'Content-Type': 'application/x-www-form-urlencoded',
-      }
+      },
+      body: JSON.stringify({url: this.state.url}) // body data type must match "Content-Type" header
      })
     .then(response => response.json())
     .then(json => {
-      this.hideSpinner();
-      this.setState({items: json});
-
+      //this.hideSpinner();
+      this.setState({reduced_url: json, spinner: false});
       console.log(this.state);
     });
   }
@@ -68,6 +69,10 @@ class Reduce extends React.Component {
 
     return (
       <div>
+        <div className="text-center text-light mb-2">
+          {this.state.reduced_url.reduced_url ? 'Reduced URL: localhost:3000/' + this.state.reduced_url.reduced_url : ''}
+        </div>
+
         <div className="input-group mb-3">
           <input
             type="text"
