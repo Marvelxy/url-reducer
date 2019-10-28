@@ -68,9 +68,6 @@ class Reduce extends React.Component {
 
     return (
       <div>
-        {/*<div className="spinner-grow text-light text-center mb-2" role="status">
-          <span className="sr-only">Loading...</span>
-        </div> */}
         <div className="input-group mb-3">
           <input
             type="text"
