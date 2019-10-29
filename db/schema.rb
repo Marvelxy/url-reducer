@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191029011602) do
+ActiveRecord::Schema.define(version: 20191029200423) do
 
   create_table "urls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "short"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20191029011602) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["long"], name: "index_urls_on_long", unique: true
+    t.index ["short"], name: "index_urls_on_short", unique: true
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

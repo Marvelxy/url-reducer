@@ -22,6 +22,13 @@ class ReducersController < ApplicationController
         #format.xml  { render xml: @bookmarks }
         format.json { render json: {'reduced_url': url.short}}
       end
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        #format.xml  { render xml: @bookmarks }
+        #format.json { message: "Validation failed", errors: url.errors, status: 400}
+        format.json { render json: { message: url.message, errors: url.errors, status: 400}}
+      end
     end
   end
 end
