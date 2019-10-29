@@ -12,10 +12,16 @@ class ReducersController < ApplicationController
 		bookmark.save
 		render plain: 'true' """
 
-    respond_to do |format|
-      format.html # index.html.erb
-      #format.xml  { render xml: @bookmarks }
-      format.json { render json: {'reduced_url': params[:url]}}
+    url = Url.new
+    url.short = '09808u8'
+    url.long = params[:url]
+
+    if url.save
+      respond_to do |format|
+        format.html # index.html.erb
+        #format.xml  { render xml: @bookmarks }
+        format.json { render json: {'reduced_url': url.short}}
+      end
     end
   end
 end

@@ -10,25 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191001221005) do
+ActiveRecord::Schema.define(version: 20191029011602) do
 
-  create_table "bookmarks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "title"
-    t.string "geolocation"
-    t.string "note"
-    t.string "review_stars"
-    t.bigint "category_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_bookmarks_on_category_id"
-    t.index ["user_id"], name: "index_bookmarks_on_user_id"
-  end
-
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "name"
-    t.string "description"
-    t.string "marker_icon"
+  create_table "urls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "short"
+    t.string "long"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +34,4 @@ ActiveRecord::Schema.define(version: 20191001221005) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "bookmarks", "categories"
-  add_foreign_key "bookmarks", "users"
 end
