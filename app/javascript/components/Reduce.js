@@ -102,7 +102,7 @@ class Reduce extends React.Component {
                   <div className="mb-2 border border-danger">
                     <div className="border-bottom pl-1 bg-danger">
                       <i className="fa fa-exclamation-circle text-light"></i>
-                      <span className="text-light">URL Reduction Failed</span>
+                      <span className="text-light"> URL Reduction Failed</span>
 
                       <div className="float-right">
                         <div className="bg-danger text-light pl-1 pr-1">
