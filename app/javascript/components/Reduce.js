@@ -77,7 +77,7 @@ class Reduce extends React.Component {
           //if(this.state.reduced_url){
             if(this.state.reduced_url.status === 200){
               return(
-                <div className="col-12">
+                <div className="">
                   <div className="mb-2 border border-success">
                     <div className="border-bottom pl-1 bg-success">
                       <i className="fa fa-check-circle text-light"></i>
@@ -98,7 +98,7 @@ class Reduce extends React.Component {
             }
             else if(this.state.reduced_url.status === 400){
               return(
-                <div className="col-12">
+                <div className="">
                   <div className="mb-2 border border-danger">
                     <div className="border-bottom pl-1 bg-danger">
                       <i className="fa fa-exclamation-circle text-light"></i>
@@ -110,7 +110,7 @@ class Reduce extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div className="pt-2 pb-2 pl-1">
+                    <div className="pt-2 pb-2 pl-1 bg-light">
                       Unable to reduce URL
                     </div>
                   </div>
