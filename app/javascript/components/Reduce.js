@@ -111,7 +111,7 @@ class Reduce extends React.Component {
                       </div>
                     </div>
                     <div className="pt-2 pb-2 pl-1 bg-light">
-                      Unable to reduce URL
+                    {this.state.reduced_url.errors.short[0]}
                     </div>
                   </div>
                 </div>
