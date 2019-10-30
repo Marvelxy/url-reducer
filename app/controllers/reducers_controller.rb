@@ -27,7 +27,13 @@ class ReducersController < ApplicationController
         format.html # index.html.erb
         #format.xml  { render xml: @bookmarks }
         #format.json { message: "Validation failed", errors: url.errors, status: 400}
-        format.json { render json: { message: url.message, errors: url.errors, status: 400}}
+        format.json {
+          render json: {
+            errors_count: url.errors.count,
+            errors: url.errors,
+            status: 400
+          }
+        }
       end
     end
   end

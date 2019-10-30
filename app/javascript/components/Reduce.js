@@ -73,6 +73,53 @@ class Reduce extends React.Component {
           {this.state.reduced_url.reduced_url ? 'Reduced URL: localhost:3000/' + this.state.reduced_url.reduced_url : ''}
         </div>
 
+        {(() => {
+          //if(this.state.reduced_url){
+            if(this.state.reduced_url.status === 200){
+              return(
+                <div className="col-12">
+                  <div className="mb-2 border border-success">
+                    <div className="border-bottom pl-1 bg-success">
+                      <i className="fa fa-check-circle text-light"></i>
+                      <span className="text-light">URL Successfully Reduced</span>
+
+                      <div className="float-right">
+                        <div className="bg-success text-light pl-1 pr-1">
+                          <i className="fa fa-times"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pt-2 pb-2 pl-1">
+                      localhost:3000/098hih
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+            else if(this.state.reduced_url.status === 400){
+              return(
+                <div className="col-12">
+                  <div className="mb-2 border border-danger">
+                    <div className="border-bottom pl-1 bg-danger">
+                      <i className="fa fa-exclamation-circle text-light"></i>
+                      <span className="text-light">URL Reduction Failed</span>
+
+                      <div className="float-right">
+                        <div className="bg-danger text-light pl-1 pr-1">
+                          <i className="fa fa-times"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="pt-2 pb-2 pl-1">
+                      Unable to reduce URL
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+        //  }
+        })()}
+
         <div className="input-group mb-3">
           <input
             type="text"
