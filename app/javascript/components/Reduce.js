@@ -111,7 +111,15 @@ class Reduce extends React.Component {
                       </div>
                     </div>
                     <div className="pt-2 pb-2 pl-1 bg-light">
-                    {this.state.reduced_url.errors.short[0]}
+                    {(() => {
+                      if('long' in this.state.reduced_url.errors){
+                        return this.state.reduced_url.errors.short[0];
+                      }
+                      else {
+                        return 'Something went wrong, try again.';
+                      }
+                      //this.state.reduced_url.errors.short[0]
+                    })()}
                     </div>
                   </div>
                 </div>
