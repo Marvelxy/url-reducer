@@ -43,7 +43,7 @@ class Reduce extends React.Component {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({url: this.state.url}) // body data type must match "Content-Type" header
+        body: JSON.stringify({url: this.state.url.trim()}) // body data type must match "Content-Type" header
        })
       .then(response => response.json())
       .then(json => {
@@ -53,7 +53,8 @@ class Reduce extends React.Component {
       });
     }
     else {
-      alert("You must enter URL!")
+      alert("You must enter URL!");
+      document.getElementById('reduce_url_input').value = '';
     }
   }
 
@@ -134,52 +135,55 @@ class Reduce extends React.Component {
         })()}
 
         <div className="input-group mb-3">
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Enter long URL"
-            aria-label="Enter long URL"
-            aria-describedby="basic-addon2"
-            style={reduceInputStyle}
-            onChange={this.setURL}
-            onKeyPress={(event) => {event.key === 'Enter' ? this.reduce() : ''}}
-          />
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              id="reduce_url_input"
+              placeholder="Enter long URL"
+              aria-label="Enter long URL"
+              aria-describedby="basic-addon2"
+              style={reduceInputStyle}
+              onChange={this.setURL}
+              onKeyPress={(event) => {event.key === 'Enter' ? this.reduce() : ''}}
+            />
 
-          <div className="input-group-append">
-            {(() => {
-              if(this.state.spinner === false){
-                return(
-                  <button
-                    type="button"
-                    name="button"
-                    className="btn btn-light"
-                    style={reduceButtonStyle}
-                    onClick={this.reduce}
-                  >
-                    Reduce
-                  </button>
-                )
-              }
-              else{
-                return(
-                  <button
-                    type="button"
-                    className="btn btn-light"
-                    style={reduceLoaderStyle}
-                    disabled
-                  >
-                    <span
-                      className="spinner-border spinner-border-sm"
-                      role="status"
-                      aria-hidden="true"
-                    ></span>
-                    Reducing...
-                  </button>
-                )
-              }
-            })()}
-          </div>
+            <div className="input-group-append">
+              {(() => {
+                if(this.state.spinner === false){
+                  return(
+                    <button
+                      type="button"
+                      name="button"
+                      className="btn btn-light"
+                      style={reduceButtonStyle}
+                      onClick={this.reduce}
+                    >
+                      Reduce
+                    </button>
+                  )
+                }
+                else{
+                  return(
+                    <button
+                      type="button"
+                      className="btn btn-light"
+                      style={reduceLoaderStyle}
+                      disabled
+                    >
+                      <span
+                        className="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      Reducing...
+                    </button>
+                  )
+                }
+              })()}
+            </div>
+
         </div>
+
       </div>
     );
   }
