@@ -13,7 +13,7 @@ class ReducersController < ApplicationController
 		render plain: 'true' """
 
     url = Url.new
-    url.short = '09808u8'
+    url.short = Url.generate_url_id
     url.long = params[:url]
 
     if url.save
