@@ -33,23 +33,28 @@ class Reduce extends React.Component {
   }
 
   reduce = () => {
-    this.showSpinner();
-    const BASE_URL = 'localhost:3000/reduce_url';
-    fetch('/reduce-url.json', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify({url: this.state.url}) // body data type must match "Content-Type" header
-     })
-    .then(response => response.json())
-    .then(json => {
-      //this.hideSpinner();
-      this.setState({reduced_url: json, spinner: false});
-      console.log(this.state);
-    });
+    if(this.state.url.trim() !== ''){
+      this.showSpinner();
+      const BASE_URL = 'localhost:3000/reduce_url';
+      fetch('/reduce-url.json', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({url: this.state.url}) // body data type must match "Content-Type" header
+       })
+      .then(response => response.json())
+      .then(json => {
+        //this.hideSpinner();
+        this.setState({reduced_url: json, spinner: false});
+        console.log(this.state);
+      });
+    }
+    else {
+      alert("You must enter URL!")
+    }
   }
 
   render () {
