@@ -75,115 +75,106 @@ class Reduce extends React.Component {
 
     return (
       <div>
-        <div className="text-center text-light mb-2">
-          {this.state.reduced_url.reduced_url ? 'Reduced URL: localhost:3000/' + this.state.reduced_url.reduced_url : ''}
-        </div>
-
         {(() => {
-          //if(this.state.reduced_url){
-            if(this.state.reduced_url.status === 200){
-              return(
-                <div className="">
-                  <div className="mb-2 border border-success">
-                    <div className="border-bottom pl-1 bg-success">
-                      <i className="fa fa-check-circle text-light"></i>
-                      <span className="text-light">URL Successfully Reduced</span>
+          if(this.state.reduced_url.status === 200){
+            return(
+              <div className="">
+                <div className="mb-2 border border-success">
+                  <div className="border-bottom pl-1 bg-success">
+                    <i className="fa fa-check-circle text-light"></i>
+                    <span className="text-light">URL Successfully Reduced</span>
 
-                      <div className="float-right">
-                        <div className="bg-success text-light pl-1 pr-1">
-                          <i className="fa fa-times"></i>
-                        </div>
+                    <div className="float-right">
+                      <div className="bg-success text-light pl-1 pr-1">
+                        <i className="fa fa-times"></i>
                       </div>
                     </div>
-                    <div className="pt-2 pb-2 pl-1">
-                      localhost:3000/098hih
-                    </div>
+                  </div>
+                  <div className="pt-2 pb-2 pl-1">
+                    localhost:3000/098hih
                   </div>
                 </div>
-              )
-            }
-            else if(this.state.reduced_url.status === 400){
-              return(
-                <div className="">
-                  <div className="mb-2 border border-danger">
-                    <div className="border-bottom pl-1 bg-danger">
-                      <i className="fa fa-exclamation-circle text-light"></i>
-                      <span className="text-light"> URL Reduction Failed</span>
+              </div>
+            )
+          }
+          else if(this.state.reduced_url.status === 400){
+            return(
+              <div className="">
+                <div className="mb-2 border border-danger">
+                  <div className="border-bottom pl-1 bg-danger">
+                    <i className="fa fa-exclamation-circle text-light"></i>
+                    <span className="text-light"> URL Reduction Failed</span>
 
-                      <div className="float-right">
-                        <div className="bg-danger text-light pl-1 pr-1">
-                          <i className="fa fa-times"></i>
-                        </div>
+                    <div className="float-right">
+                      <div className="bg-danger text-light pl-1 pr-1">
+                        <i className="fa fa-times"></i>
                       </div>
                     </div>
-                    <div className="pt-2 pb-2 pl-1 bg-light">
-                    {(() => {
-                      if('long' in this.state.reduced_url.errors){
-                        return this.state.reduced_url.errors.long[0];
-                      }
-                      else {
-                        return 'Something went wrong, try again.';
-                      }
-                      //this.state.reduced_url.errors.short[0]
-                    })()}
-                    </div>
+                  </div>
+                  <div className="pt-2 pb-2 pl-1 bg-light">
+                  {(() => {
+                    if('long' in this.state.reduced_url.errors){
+                      return this.state.reduced_url.errors.long[0];
+                    }
+                    else {
+                      return 'Something went wrong, try again.';
+                    }
+                  })()}
                   </div>
                 </div>
-              )
-            }
-        //  }
+              </div>
+            )
+          }
         })()}
 
         <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              id="reduce_url_input"
-              placeholder="Enter long URL"
-              aria-label="Enter long URL"
-              aria-describedby="basic-addon2"
-              style={reduceInputStyle}
-              onChange={this.setURL}
-              onKeyPress={(event) => {event.key === 'Enter' ? this.reduce() : ''}}
-            />
+          <input
+            type="text"
+            className="form-control form-control-lg"
+            id="reduce_url_input"
+            placeholder="Enter long URL"
+            aria-label="Enter long URL"
+            aria-describedby="basic-addon2"
+            style={reduceInputStyle}
+            onChange={this.setURL}
+            onKeyPress={(event) => {event.key === 'Enter' ? this.reduce() : ''}}
+          />
 
-            <div className="input-group-append">
-              {(() => {
-                if(this.state.spinner === false){
-                  return(
-                    <button
-                      type="button"
-                      name="button"
-                      className="btn btn-light"
-                      style={reduceButtonStyle}
-                      onClick={this.reduce}
-                    >
-                      Reduce
-                    </button>
-                  )
-                }
-                else{
-                  return(
-                    <button
-                      type="button"
-                      className="btn btn-light"
-                      style={reduceLoaderStyle}
-                      disabled
-                    >
-                      <span
-                        className="spinner-border spinner-border-sm"
-                        role="status"
-                        aria-hidden="true"
-                      ></span>
-                      Reducing...
-                    </button>
-                  )
-                }
-              })()}
-            </div>
-
+          <div className="input-group-append">
+            {(() => {
+              if(this.state.spinner === false){
+                return(
+                  <button
+                    type="button"
+                    name="button"
+                    className="btn btn-light"
+                    style={reduceButtonStyle}
+                    onClick={this.reduce}
+                  >
+                    Reduce
+                  </button>
+                )
+              }
+              else{
+                return(
+                  <button
+                    type="button"
+                    className="btn btn-light"
+                    style={reduceLoaderStyle}
+                    disabled
+                  >
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Reducing...
+                  </button>
+                )
+              }
+            })()}
+          </div>
         </div>
-
       </div>
     );
   }
