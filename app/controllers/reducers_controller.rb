@@ -3,7 +3,7 @@ class ReducersController < ApplicationController
   protect_from_forgery except: :reduce_url
 
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:reduce_url]
+  skip_before_action :authenticate_user!, only: [:reduce_url, :redirect_to_main_url]
 
   def reduce_url
     """
@@ -41,5 +41,11 @@ class ReducersController < ApplicationController
         }
       end
     end
+  end
+
+  def redirect_to_main_url
+    url = Url.find_by_short(params[:id])
+    redirect_to url.long
+    #redirect_to 'http://facebook.com'
   end
 end
