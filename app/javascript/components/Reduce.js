@@ -138,6 +138,7 @@ class Reduce extends React.Component {
             style={reduceInputStyle}
             onChange={this.setURL}
             onKeyPress={(event) => {event.key === 'Enter' ? this.reduce() : ''}}
+            autoFocus
           />
 
           <div className="input-group-append">
