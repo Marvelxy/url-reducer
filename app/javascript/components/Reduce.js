@@ -90,7 +90,7 @@ class Reduce extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="pt-2 pb-2 pl-1">
+                  <div className="pt-2 pb-2 pl-1 bg-light">
                     localhost:3000/ {this.state.reduced_url.reduced_url}
                   </div>
                 </div>
