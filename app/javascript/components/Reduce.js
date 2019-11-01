@@ -21,7 +21,10 @@ class Reduce extends React.Component {
   }
 
   setURL = (event) => {
-    this.setState({url: event.target.value})
+    this.setState({url: event.target.value});
+    /*if(this.state.url.trim() === ''){
+      this.setState({reduced_url: {}});
+    }*/
   }
 
   showSpinner = () => {
@@ -30,6 +33,11 @@ class Reduce extends React.Component {
 
   hideSpinner = () => {
     this.setState({spinner: false})
+  }
+
+  closeNotification = () => {
+    this.setState({reduced_url: {}});
+    document.getElementById('reduce_url_input').value = '';
   }
 
   reduce = () => {
@@ -84,7 +92,7 @@ class Reduce extends React.Component {
                     <i className="fa fa-check-circle text-light"></i>
                     <span className="text-light"> URL Successfully Reduced</span>
 
-                    <div className="float-right">
+                    <div className="float-right close-icon" onClick={this.closeNotification}>
                       <div className="bg-success text-light pl-1 pr-1">
                         <i className="fa fa-times"></i>
                       </div>
@@ -105,7 +113,7 @@ class Reduce extends React.Component {
                     <i className="fa fa-exclamation-circle text-light"></i>
                     <span className="text-light"> URL Reduction Failed</span>
 
-                    <div className="float-right">
+                    <div className="float-right close-icon" onClick={this.closeNotification}>
                       <div className="bg-danger text-light pl-1 pr-1">
                         <i className="fa fa-times"></i>
                       </div>
