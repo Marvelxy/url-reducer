@@ -82,7 +82,7 @@ class Reduce extends React.Component {
                 <div className="mb-2 border border-success">
                   <div className="border-bottom pl-1 bg-success">
                     <i className="fa fa-check-circle text-light"></i>
-                    <span className="text-light">URL Successfully Reduced</span>
+                    <span className="text-light"> URL Successfully Reduced</span>
 
                     <div className="float-right">
                       <div className="bg-success text-light pl-1 pr-1">
@@ -91,7 +91,7 @@ class Reduce extends React.Component {
                     </div>
                   </div>
                   <div className="pt-2 pb-2 pl-1 bg-light">
-                    localhost:3000/ {this.state.reduced_url.reduced_url}
+                    localhost:3000/{this.state.reduced_url.reduced_url}
                   </div>
                 </div>
               </div>
