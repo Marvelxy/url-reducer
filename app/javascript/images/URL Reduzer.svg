@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="36" viewBox="0 0 46 36">
+  <defs>
+    <clipPath id="clip-URL_Reduzer">
+      <rect width="46" height="36"/>
+    </clipPath>
+  </defs>
+  <g id="URL_Reduzer" data-name="URL Reduzer" clip-path="url(#clip-URL_Reduzer)">
+    <path id="ic_content_cut_24px" d="M3.962,3.2a.717.717,0,0,0,.092-.35A.953.953,0,0,0,3.027,2,.953.953,0,0,0,2,2.854a.953.953,0,0,0,1.027.854,1.174,1.174,0,0,0,.421-.077l.606.5-.606.5a1.174,1.174,0,0,0-.421-.077A.953.953,0,0,0,2,5.418a.953.953,0,0,0,1.027.854.953.953,0,0,0,1.027-.854.717.717,0,0,0-.092-.35l.606-.5,1.8,1.5h.771V5.845Zm-.935.077a.476.476,0,0,1-.514-.427.476.476,0,0,1,.514-.427.476.476,0,0,1,.514.427A.476.476,0,0,1,3.027,3.282Zm0,2.563a.476.476,0,0,1-.514-.427.476.476,0,0,1,.514-.427.476.476,0,0,1,.514.427A.476.476,0,0,1,3.027,5.845Zm1.541-1.6A.109.109,0,1,1,4.7,4.136.118.118,0,0,1,4.569,4.243Zm1.8-2.029L4.825,3.5l.514.427,1.8-1.5V2.214Z" transform="translate(25.247 12) rotate(90)" fill="#fff"/>
+    <g id="Group_2" data-name="Group 2" transform="translate(-6)">
+      <path id="Path_4" data-name="Path 4" d="M0,0,11.6.479,12.252,1.6l-.494,1.029.51,1.134-.294.659.372.692-.266.559.315.629L.236,5.753Z" transform="translate(10.404 15.86) rotate(-7)" fill="#fff"/>
+      <text id="URL" transform="matrix(0.993, -0.122, 0.122, 0.993, 11.884, 20.178)" fill="#676da4" font-size="5" font-family="TempusSansITC, Tempus Sans ITC"><tspan x="0" y="0">URL</tspan></text>
+    </g>
+    <g id="Group_1" data-name="Group 1" transform="translate(-15.662 -1.551) rotate(5)">
+      <path id="Path_5" data-name="Path 5" d="M0,.045,14.544,0,15.3,1.041l-.673,1L15.213,3.1l-.4.639.431.642-.363.543.363.585H0Z" transform="translate(57.555 18.719) rotate(180)" fill="#fff"/>
+      <text id="Reduzer" transform="translate(43.637 17.231)" fill="#676da4" font-size="4" font-family="TempusSansITC, Tempus Sans ITC"><tspan x="0" y="0">Reduzer</tspan></text>
+    </g>
+  </g>
+</svg>
