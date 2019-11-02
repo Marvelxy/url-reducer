@@ -32,6 +32,6 @@ test:
 
 production:
   adapter: postgresql
-  database: postgresql-reticulated-78300
+  database: postgresql-clear-60488
   pool: 5
   timeout: 5000
