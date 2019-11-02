@@ -45,7 +45,8 @@ class ReducersController < ApplicationController
 
   def redirect_to_main_url
     url = Url.find_by_short(params[:id])
-    redirect_to url.long
+    full_url = Url.return_http_prefix(url.long)
+    redirect_to full_url
     #redirect_to 'http://facebook.com'
   end
 end
