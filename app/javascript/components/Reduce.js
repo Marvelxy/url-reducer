@@ -22,9 +22,6 @@ class Reduce extends React.Component {
 
   setURL = (event) => {
     this.setState({url: event.target.value});
-    /*if(this.state.url.trim() === ''){
-      this.setState({reduced_url: {}});
-    }*/
   }
 
   showSpinner = () => {
