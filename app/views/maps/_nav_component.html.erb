@@ -16,29 +16,21 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <!--<div class="form-inline my-0 my-lg-0 form-label-group">
-            <select class="form-control-lg custom-select" id="searchType">
-              <option value="">Address search</option>
-              <option value="">Location search</option>
-            </select>
-
-            <!--
-            <label for="searchLocation">Latitude, Longitude</label>
-            <input class="form-control" id="searchLocation" type="search" placeholder="Latitude, Longitude" aria-label="Search" required="required">
-            -->
-            <!--
-            <input class="form-control" id="searchLocation" type="text" placeholder="Latitude, Longitude" aria-label="Search" required>
-
-            <button class="btn btn-success mr-5" id="locationSearch">
-              <i class="fas fa-search"></i> Search
-            </button>
-          </div>-->
-          <a href="#" class="nav-link" id="reduce_url_link">Reduce URL</a>
-        </li>
-        <li class="nav-item">
-          <a href="#how_it_works" class="nav-link" id="how_it_works_link">How it works</a>
-        </li>
+        <% if request.env['PATH_INFO'] == '/' %>
+          <li class="nav-item">
+            <a href="#" class="nav-link" id="reduce_url_link">Reduce URL</a>
+          </li>
+          <li class="nav-item">
+            <a href="#how_it_works" class="nav-link" id="how_it_works_link">How it works</a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="/#" class="nav-link" id="reduce_url_link">Reduce URL</a>
+          </li>
+          <li class="nav-item">
+            <a href="/#how_it_works" class="nav-link" id="how_it_works_link">How it works</a>
+          </li>
+        <% end %>
 
         <% if user_signed_in? %>
           <li class="nav-item dropdown">

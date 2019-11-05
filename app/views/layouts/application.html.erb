@@ -16,11 +16,13 @@
   </head>
 
   <body>
-
-    <%= render "maps/nav_component" %>
+    <% if request.env['PATH_INFO'] == '/' %>
+      
+    <% else %>
+      <%= render "maps/nav_component" %>
+    <% end %>
 
     <%= yield %>
-
 
     <%= render "maps/footer_component" %>
   </body>
