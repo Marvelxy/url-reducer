@@ -80,9 +80,13 @@ nav{
   cursor: pointer;
 }
 
+.dropdown-item{
+  color: #676DA4;
+}
 
-
-
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #464b7c;
+}
 
 
 
