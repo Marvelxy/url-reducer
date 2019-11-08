@@ -1,4 +1,4 @@
-class ReducersController < ApplicationController
+class UrlsController < ApplicationController
 
   protect_from_forgery except: :reduce_url
 
