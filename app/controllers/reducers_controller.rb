@@ -16,6 +16,10 @@ class ReducersController < ApplicationController
     url.short = Url.generate_url_id
     url.long = params[:url]
 
+    if user_signed_in?
+      url.user_id = current_user.id
+    end
+    
     if url.save
       respond_to do |format|
         format.html # index.html.erb
