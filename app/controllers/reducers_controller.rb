@@ -19,7 +19,7 @@ class ReducersController < ApplicationController
     if user_signed_in?
       url.user_id = current_user.id
     end
-    
+
     if url.save
       respond_to do |format|
         format.html # index.html.erb
@@ -35,7 +35,6 @@ class ReducersController < ApplicationController
       respond_to do |format|
         format.html # index.html.erb
         #format.xml  { render xml: @bookmarks }
-        #format.json { message: "Validation failed", errors: url.errors, status: 400}
         format.json {
           render json: {
             errors_count: url.errors.count,
