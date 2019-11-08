@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
 
   # New routes
-  post 'reduce-url', to: 'reducers#reduce_url'
-  get 'r/:id' => 'reducers#redirect_to_main_url'
+  post 'reduce-url', to: 'urls#reduce_url'
+  get 'r/:id' => 'urls#redirect_to_main_url'
 
 end
