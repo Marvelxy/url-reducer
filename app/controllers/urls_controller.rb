@@ -7,16 +7,16 @@ class UrlsController < ApplicationController
   layout "user"
 
   def index
+    @url = Url.where(user_id: current_user.id)
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render xml: @url }
+      format.json { render json: @url}
+    end
   end
 
   def reduce_url
-    """
-    bookmark = Bookmark.find(params[:bookmark_id])
-		bookmark.review_stars = params[:review_stars]
-		bookmark.save
-		render plain: 'true' """
-
     url = Url.new
     url.short = Url.generate_url_id
     url.long = params[:url]
@@ -56,5 +56,9 @@ class UrlsController < ApplicationController
     full_url = Url.return_http_prefix(url.long)
     redirect_to full_url
     #redirect_to 'http://facebook.com'
+  end
+
+  def urls
+
   end
 end
