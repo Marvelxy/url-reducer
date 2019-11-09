@@ -6,6 +6,10 @@ class UrlsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:reduce_url, :redirect_to_main_url]
   layout "user"
 
+  def index
+
+  end
+
   def reduce_url
     """
     bookmark = Bookmark.find(params[:bookmark_id])
