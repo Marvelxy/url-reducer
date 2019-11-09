@@ -68,8 +68,8 @@ class Url extends React.Component {
         {(() => {
           if (this.state.spinner === true){
             return(
-              <div>
-                Loading...
+              <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
+                <span className="sr-only">Loading...</span>
               </div>
             )
           }
@@ -78,7 +78,6 @@ class Url extends React.Component {
     );
   }
 }
-
 
 Url.propTypes = {
   name: PropTypes.string
