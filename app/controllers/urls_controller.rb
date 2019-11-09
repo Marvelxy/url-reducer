@@ -4,6 +4,7 @@ class UrlsController < ApplicationController
 
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:reduce_url, :redirect_to_main_url]
+  layout "user"
 
   def reduce_url
     """
