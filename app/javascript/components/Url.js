@@ -38,6 +38,7 @@ class Url extends React.Component {
   }
 
   get_urls = () => {
+    this.showSpinner();
     const BASE_URL = 'localhost:3000/reduce_url';
     fetch('/urls.json', {
       method: 'GET',
@@ -46,10 +47,10 @@ class Url extends React.Component {
         'Content-Type': 'application/json'
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
-      //body: JSON.stringify({url: this.state.url.trim()}) // body data type must match "Content-Type" header
      })
     .then(response => response.json())
     .then(json => {
+      this.hideSpinner();
       console.log(json);
       this.setState({reduced_url: json, spinner: false});
       console.log(this.state);
@@ -65,8 +66,14 @@ class Url extends React.Component {
     return (
       <div>
         {(() => {
-
-        })}
+          if (this.state.spinner === true){
+            return(
+              <div>
+                Loading...
+              </div>
+            )
+          }
+        })()}
       </div>
     );
   }
