@@ -6,7 +6,7 @@ class Url extends React.Component {
     super(props);
     this.state = {
       url: '',
-      reduced_url: {},
+      saved_urls: {},
       spinner: false
     }
   }
@@ -52,7 +52,7 @@ class Url extends React.Component {
     .then(json => {
       this.hideSpinner();
       console.log(json);
-      this.setState({reduced_url: json, spinner: false});
+      this.setState({saved_urls: json, spinner: false});
       console.log(this.state);
     });
   }
@@ -62,7 +62,6 @@ class Url extends React.Component {
       backgroundColor: '#ffffff'
     };
 
-
     return (
       <div>
         {(() => {
@@ -70,6 +69,13 @@ class Url extends React.Component {
             return(
               <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
                 <span className="sr-only">Loading...</span>
+              </div>
+            )
+          }
+          else{
+            return(
+              <div>
+                loaded
               </div>
             )
           }
