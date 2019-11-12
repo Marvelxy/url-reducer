@@ -6,7 +6,7 @@ class Url extends React.Component {
     super(props);
     this.state = {
       url: '',
-      saved_urls: {},
+      saved_urls: [],
       spinner: false
     }
   }
@@ -51,9 +51,9 @@ class Url extends React.Component {
     .then(response => response.json())
     .then(json => {
       this.hideSpinner();
-      console.log(json);
+      //console.log(json);
       this.setState({saved_urls: json, spinner: false});
-      console.log(this.state);
+      //console.log(this.state);
     });
   }
 
@@ -75,7 +75,14 @@ class Url extends React.Component {
           else{
             return(
               <div>
-                loaded
+                {
+                  this.state.saved_urls.map((url, index) => (
+                    <div key={index} className="border">
+                      <div>{url.short}</div>
+                      <div>{url.long}</div>
+                    </div>
+                  ))
+                }
               </div>
             )
           }
