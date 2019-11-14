@@ -31,6 +31,7 @@ Rails.start();
 
 //require.context('../images/', true);
 import '../src/maps.scss';
+import '../src/users.scss';
 //import '../src/floating-labels.css';
 import '../src/bookmarks.scss';
 import '../images/map project logo.svg'
