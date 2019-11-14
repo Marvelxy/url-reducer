@@ -80,7 +80,7 @@ class Url extends React.Component {
                     <div
                       key={index}
                       className="p-3"
-                      style={{borderColor: '#676DA4', borderSize: '1px', borderStyle: 'solid'}}
+                      style={{borderColor: '#676DA4', borderWidth: '1px', borderStyle: 'solid', marginTop: '0.5em'}}
                     >
                       <div>
                         Long URL: {url.long}
