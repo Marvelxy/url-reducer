@@ -86,7 +86,10 @@ class Url extends React.Component {
                         Long URL: {url.long}
                       </div>
                       <div>
-                        Short URL: {url.short}
+                        Short URL:&nbsp;
+                        <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
+                          http://url-reduzer.herokuapp.com/r/{url.short}
+                        </a>
                       </div>
                     </div>
                   ))
