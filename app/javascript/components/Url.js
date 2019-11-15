@@ -79,11 +79,10 @@ class Url extends React.Component {
                   this.state.saved_urls.map((url, index) => (
                     <div
                       key={index}
-                      className="p-3"
-                      style={{borderColor: '#676DA4', borderWidth: '1px', borderStyle: 'solid', marginTop: '0.5em'}}
+                      className="p-3 url-item"
                     >
                       <div>
-                        Long URL: {url.long}
+                        Long URL: <span className="">{url.long}</span>
                       </div>
                       <div>
                         Short URL:&nbsp;
