@@ -18,7 +18,7 @@
 
     <div class="container mt-3">
       <div class="row">
-        <div class="col-lg-3 d-none d-sm-none d-md-block">
+        <div class="col-md-3 col-lg-3 d-none d-sm-none d-md-block">
           <div class="list-group">
             <a href="/urls" class="list-group-item list-group-item-action <%= (request.env['PATH_INFO'] == '/urls') ? 'active' : '' %>">
               Reduced URLs
@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <div class="col-lg-9">
+        <div class="col-md-9 col-lg-9">
           <%= yield %>
         </div>
       </div>
