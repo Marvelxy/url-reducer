@@ -90,6 +90,11 @@ class Url extends React.Component {
                           http://url-reduzer.herokuapp.com/r/{url.short}
                         </a>
                       </div>
+                      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Left</button>
+                        <button type="button" class="btn btn-secondary">Middle</button>
+                        <button type="button" class="btn btn-secondary">Right</button>
+                      </div>
                     </div>
                   ))
                 }
