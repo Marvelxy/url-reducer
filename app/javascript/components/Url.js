@@ -91,9 +91,15 @@ class Url extends React.Component {
                         </a>
                       </div>
                       <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-light">Edit</button>
-                        <button type="button" className="btn btn-light">Delete</button>
-                        <button type="button" className="btn btn-light">Regenerate</button>
+                        <button type="button" className="btn btn-light text-primary">
+                          <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button type="button" className="btn btn-light text-success">
+                          <i class="fas fa-redo"></i> Regenerate
+                        </button>
+                        <button type="button" className="btn btn-light text-danger">
+                          <i class="fas fa-trash"></i> Delete
+                        </button>
                       </div>
                     </div>
                   ))
