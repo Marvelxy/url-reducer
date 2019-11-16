@@ -79,7 +79,7 @@ class Url extends React.Component {
                   this.state.saved_urls.map((url, index) => (
                     <div
                       key={index}
-                      className="p-3 url-item"
+                      className="pt-3 pl-3 pr-3 pb-1 url-item"
                     >
                       <div>
                         Long URL: <span className="">{url.long}</span>
@@ -90,10 +90,10 @@ class Url extends React.Component {
                           http://url-reduzer.herokuapp.com/r/{url.short}
                         </a>
                       </div>
-                      <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-secondary">Left</button>
-                        <button type="button" className="btn btn-secondary">Middle</button>
-                        <button type="button" className="btn btn-secondary">Right</button>
+                      <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+                        <button type="button" className="btn btn-light">Edit</button>
+                        <button type="button" className="btn btn-light">Delete</button>
+                        <button type="button" className="btn btn-light">Regenerate</button>
                       </div>
                     </div>
                   ))
