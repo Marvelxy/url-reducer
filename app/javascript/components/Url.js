@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Modal from 'react-bootstrap/Modal'
+import {Modal, Button} from 'react-bootstrap';
 
 class Url extends React.Component {
   constructor(props) {
@@ -8,8 +8,11 @@ class Url extends React.Component {
     this.state = {
       url: '',
       saved_urls: [],
-      spinner: false
+      spinner: false,
+      show: false,
+
     }
+
   }
 
   componentDidMount(){
@@ -58,6 +61,11 @@ class Url extends React.Component {
     });
   }
 
+  //const [show, setShow] = React.useState(false);
+
+  handleClose = () => this.setState({show: false});
+  show = () => this.setState({show: true});
+
   render () {
     const reduceInputStyle = {
       backgroundColor: '#ffffff'
@@ -92,7 +100,7 @@ class Url extends React.Component {
                         </a>
                       </div>
                       <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-light text-primary">
+                        <button type="button" className="btn btn-light text-primary" onClick={this.show}>
                           <i className="fas fa-edit fa-xs"></i> Edit
                         </button>
                         <button type="button" className="btn btn-light text-success">
@@ -105,6 +113,20 @@ class Url extends React.Component {
                     </div>
                   ))
                 }
+                <Modal show={this.state.show} onHide={this.handleClose} centered>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={this.handleClose}>
+                      Close
+                    </Button>
+                    <Button variant="primary" onClick={this.handleClose}>
+                      Save Changes
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </div>
             )
           }
@@ -113,6 +135,7 @@ class Url extends React.Component {
     );
   }
 }
+
 
 Url.propTypes = {
   name: PropTypes.string
