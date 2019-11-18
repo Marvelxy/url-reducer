@@ -57,20 +57,13 @@ class Url extends React.Component {
     .then(response => response.json())
     .then(json => {
       this.hideSpinner();
-      //console.log(json);
       this.setState({saved_urls: json, spinner: false});
-      //console.log(this.state);
     });
   }
-
-  //const [show, setShow] = React.useState(false);
 
   handleClose = () => this.setState({show: false});
   show = (e,index) => {
     this.setState({show: true, editLongURL:{longURL: this.state.saved_urls[index].long}});
-    //console.log(index);
-    //console.log(e.target.elements.editLongURL.value);
-    //document.getElementById('editLongURL').value = this.state.editLongURL.longURL;
   }
 
   handleSubmit = (e) => {
@@ -141,29 +134,22 @@ class Url extends React.Component {
                           You can enter a new URL or edit the existing URL.
                         </Form.Text>
                       </Form.Group>
-
-                      {/*<Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                      </Form.Group>
-                      <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                      </Form.Group>*/}
                       <div style={{display: 'flex', justifyContent: 'center', alignItem: 'center'}}>
                         <Button variant="primary" type="submit">
-                          Submit
+                          Save
                         </Button>
                       </div>
                     </Form>
                   </Modal.Body>
-                  {/*<Modal.Footer>
+                  <Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>
                       Close
                     </Button>
-                    <Button variant="primary" onClick={this.handleClose}>
+
+                    {/*<Button variant="primary" onClick={this.handleClose}>
                       Save Changes
-                    </Button>
-                  </Modal.Footer>*/}
+                    </Button> */}
+                  </Modal.Footer>
                 </Modal>
               </div>
             )
