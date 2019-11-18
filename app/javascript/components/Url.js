@@ -62,12 +62,13 @@ class Url extends React.Component {
   }
 
   handleClose = () => this.setState({show: false});
-  show = (e,index) => {
+  show = (event,index) => {
     this.setState({show: true, editLongURL:{longURL: this.state.saved_urls[index].long}});
   }
 
-  handleSubmit = (e) => {
-    console.log(e.target.elements.editLongURL.value);
+  handleSubmit = (event) => {
+    console.log(event.target.elements.editLongURL.value);
+    event.preventDefault();
   }
 
 
