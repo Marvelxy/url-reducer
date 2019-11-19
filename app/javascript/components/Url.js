@@ -11,8 +11,9 @@ class Url extends React.Component {
       spinner: false,
       show: false,
       editLongURL:{
-        longURL: ''
-      }
+        url: '',
+      },
+      oldLongURL: '',
     }
 
   }
@@ -63,17 +64,23 @@ class Url extends React.Component {
 
   handleClose = () => this.setState({show: false});
   show = (event,index) => {
-    this.setState({show: true, editLongURL:{longURL: this.state.saved_urls[index].long}});
+    this.setState({
+      show: true,
+      editLongURL:{
+        url: this.state.saved_urls[index].long
+      },
+      oldLongURL: this.state.saved_urls[index].long
+    })
   }
 
   handleSubmit = (event) => {
-    //console.log(event.target.elements.editLongURL.value);
     event.preventDefault();
   }
 
   editUrl = () => {
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-    console.log(this.state.editLongURL);
+    console.log(this.state);
+
     fetch('/edit-reduced-url.json', {
       method: 'POST',
       credentials: 'same-origin',
@@ -82,7 +89,10 @@ class Url extends React.Component {
         // 'Content-Type': 'application/x-www-form-urlencoded',
         'X-CSRF-Token': csrf
       },
-      body: JSON.stringify({long: this.state.editLongURL.longURL.trim()}) // body data type must match "Content-Type" header
+      body: JSON.stringify({
+        oldLongURL: this.state.oldLongURL.trim(),
+        editedLongURL: this.state.editLongURL.url.trim(),
+      }) // body data type must match "Content-Type" header
      })
     .then(response => response.json())
     .then(json => {
@@ -90,6 +100,7 @@ class Url extends React.Component {
       //this.setState({reduced_url: json, spinner: false});
       console.log(json);
     });
+
     /*if(this.state.url.trim() !== ''){
       this.showSpinner();
       const BASE_URL = 'localhost:3000/reduce_url';
@@ -172,8 +183,8 @@ class Url extends React.Component {
                       <Form.Group controlId="editLongURL">
                         <Form.Label>Long URL</Form.Label>
                         <Form.Control as="textarea" rows="3" placeholder="Enter long URL"
-                          value={this.state.editLongURL.longURL}
-                          onChange={(e) => this.setState({editLongURL: {longURL: e.target.value}})} />
+                          value={this.state.editLongURL.url}
+                          onChange={(e) => this.setState({editLongURL: {url: e.target.value}})} />
                         <Form.Text className="text-muted">
                           You can enter a new URL or edit the existing URL.
                         </Form.Text>

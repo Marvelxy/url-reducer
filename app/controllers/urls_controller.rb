@@ -59,12 +59,12 @@ class UrlsController < ApplicationController
   end
 
   def edit_reduced_url
-    @url = Url.where(user_id: current_user.id, long: params[:long])
-
+    @url = Url.where(user_id: current_user.id, long: params[:oldLongURL])
+    #params[:editedLongURL]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render xml: @url }
-      format.json { render json: @url}
+      format.json { render json: { edited: params[:editedLongURL]}}
     end
   end
 end
