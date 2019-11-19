@@ -72,7 +72,24 @@ class Url extends React.Component {
   }
 
   editUrl = () => {
+    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
     console.log(this.state.editLongURL);
+    fetch('/edit-reduced-url.json', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRF-Token': csrf
+      },
+      body: JSON.stringify({long: this.state.editLongURL.longURL.trim()}) // body data type must match "Content-Type" header
+     })
+    .then(response => response.json())
+    .then(json => {
+      //this.hideSpinner();
+      //this.setState({reduced_url: json, spinner: false});
+      console.log(json);
+    });
     /*if(this.state.url.trim() !== ''){
       this.showSpinner();
       const BASE_URL = 'localhost:3000/reduce_url';

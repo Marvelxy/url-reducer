@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   post 'reduce-url', to: 'urls#reduce_url'
   get 'r/:id' => 'urls#redirect_to_main_url'
   resources :urls
-  
+  post 'edit-reduced-url', to: 'urls#edit_reduced_url'
+
 
 end

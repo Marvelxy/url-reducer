@@ -58,7 +58,13 @@ class UrlsController < ApplicationController
     #redirect_to 'http://facebook.com'
   end
 
-  def urls
+  def edit_reduced_url
+    @url = Url.where(user_id: current_user.id, long: params[:long])
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render xml: @url }
+      format.json { render json: @url}
+    end
   end
 end
