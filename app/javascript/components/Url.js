@@ -195,9 +195,6 @@ class Url extends React.Component {
                         </Form.Text>
                       </Form.Group>
                       <div style={{display: 'flex', justifyContent: 'center', alignItem: 'center'}}>
-
-
-
                         {(() => {
                           if(this.state.editUrlSpinner === false){
                             return(
@@ -223,8 +220,6 @@ class Url extends React.Component {
                             )
                           }
                         })()}
-
-
                       </div>
                     </Form>
                   </Modal.Body>
