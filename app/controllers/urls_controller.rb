@@ -74,6 +74,18 @@ class UrlsController < ApplicationController
           }
         }
       end
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        #format.xml  { render xml: @bookmarks }
+        format.json {
+          render json: {
+            errors_count: url.errors.count,
+            errors: url.errors,
+            status: 400
+          }
+        }
+      end
     end
   end
 end
