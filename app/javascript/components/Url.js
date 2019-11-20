@@ -188,6 +188,9 @@ class Url extends React.Component {
                         <Form.Text className="text-muted">
                           You can enter a new URL or edit the existing URL.
                         </Form.Text>
+                        <Form.Text className="text-warning">
+                          You can only edit the long url. To edit the reduzed url, click on the regenerate button.
+                        </Form.Text>
                       </Form.Group>
                       <div style={{display: 'flex', justifyContent: 'center', alignItem: 'center'}}>
                         <Button variant="primary" type="submit" onClick={this.editUrl}>
