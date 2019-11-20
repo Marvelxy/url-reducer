@@ -9,6 +9,7 @@ class Url extends React.Component {
       url: '',
       saved_urls: [],
       spinner: false,
+      editUrlSpinner: false,
       show: false,
       editLongURL:{
         url: '',
@@ -78,6 +79,7 @@ class Url extends React.Component {
   }
 
   editUrl = () => {
+    this.setState({editUrlSpinner: true});
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
     console.log(this.state);
 
@@ -97,7 +99,7 @@ class Url extends React.Component {
     .then(response => response.json())
     .then(json => {
       //this.hideSpinner();
-      //this.setState({reduced_url: json, spinner: false});
+      this.setState({editUrlSpinner: false});
       console.log(json);
     });
 
@@ -193,9 +195,36 @@ class Url extends React.Component {
                         </Form.Text>
                       </Form.Group>
                       <div style={{display: 'flex', justifyContent: 'center', alignItem: 'center'}}>
-                        <Button variant="primary" type="submit" onClick={this.editUrl}>
-                          Save
-                        </Button>
+
+
+
+                        {(() => {
+                          if(this.state.editUrlSpinner === false){
+                            return(
+                              <Button variant="primary" type="submit" onClick={this.editUrl}>
+                                Save
+                              </Button>
+                            )
+                          }
+                          else{
+                            return(
+                              <button
+                                type="button"
+                                className="btn btn-light"
+                                disabled
+                              >
+                                <span
+                                  className="spinner-border spinner-border-sm"
+                                  role="status"
+                                  aria-hidden="true"
+                                ></span>
+                                Reducing...
+                              </button>
+                            )
+                          }
+                        })()}
+
+
                       </div>
                     </Form>
                   </Modal.Body>
