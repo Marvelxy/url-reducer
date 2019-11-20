@@ -218,7 +218,7 @@ class Url extends React.Component {
                                   role="status"
                                   aria-hidden="true"
                                 ></span>
-                                Reducing...
+                                Editing URL...
                               </button>
                             )
                           }
