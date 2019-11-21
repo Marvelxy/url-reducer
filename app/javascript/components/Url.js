@@ -15,6 +15,8 @@ class Url extends React.Component {
         url: '',
       },
       oldLongURL: '',
+      urlEditResponse: [],
+      urlEditAlert: false
     }
 
   }
@@ -81,7 +83,7 @@ class Url extends React.Component {
   editUrl = () => {
     this.setState({editUrlSpinner: true});
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-    console.log(this.state);
+    //console.log(this.state);
 
     fetch('/edit-reduced-url.json', {
       method: 'POST',
@@ -99,8 +101,10 @@ class Url extends React.Component {
     .then(response => response.json())
     .then(json => {
       //this.hideSpinner();
-      this.setState({editUrlSpinner: false});
-      console.log(json);
+      if(json.status === 200){
+        this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
+        console.log(this.state.urlEditResponse);
+      }
     });
 
     /*if(this.state.url.trim() !== ''){
@@ -182,15 +186,17 @@ class Url extends React.Component {
                   </Modal.Header>
                   <Modal.Body>
                     {(() => {
-                      <Alert variant="success" onClose={() => setShow(false)} dismissible>
-                        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-                        <p>
-                          Change this and that and try again. Duis mollis, est non commodo
-                          luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                          Cras mattis consectetur purus sit amet fermentum.
-                        </p>
-                      </Alert>
-                    })()}s
+                      if(this.state.urlEditAlert){
+                        return(
+                          <Alert variant="success" onClose={() => setShow(false)} dismissible>
+                            <Alert.Heading>Great!</Alert.Heading>
+                            <p>
+                              URL successfully reduced.
+                            </p>
+                          </Alert>
+                        )
+                      }
+                    })()}
                     <Form onSubmit={this.handleSubmit}>
                       <Form.Group controlId="editLongURL">
                         <Form.Label>Long URL</Form.Label>
