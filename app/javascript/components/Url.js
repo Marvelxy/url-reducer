@@ -55,7 +55,6 @@ class Url extends React.Component {
       credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
      })
     .then(response => response.json())
@@ -84,7 +83,6 @@ class Url extends React.Component {
   editUrl = () => {
     this.setState({editUrlSpinner: true});
     const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-    //console.log(this.state);
 
     fetch('/edit-reduced-url.json', {
       method: 'POST',
@@ -107,30 +105,6 @@ class Url extends React.Component {
         console.log(this.state.urlEditResponse);
       }
     });
-
-    /*if(this.state.url.trim() !== ''){
-      this.showSpinner();
-      const BASE_URL = 'localhost:3000/reduce_url';
-      fetch('/reduce-url.json', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify({url: this.state.url.trim()}) // body data type must match "Content-Type" header
-       })
-      .then(response => response.json())
-      .then(json => {
-        //this.hideSpinner();
-        this.setState({reduced_url: json, spinner: false});
-        console.log(this.state);
-      });
-    }
-    else {
-      alert("You must enter URL!");
-      document.getElementById('reduce_url_input').value = '';
-    }*/
   }
 
 
@@ -244,10 +218,6 @@ class Url extends React.Component {
                     <Button variant="secondary" onClick={this.handleClose}>
                       Close
                     </Button>
-
-                    {/*<Button variant="primary" onClick={this.handleClose}>
-                      Save Changes
-                    </Button> */}
                   </Modal.Footer>
                 </Modal>
               </div>
