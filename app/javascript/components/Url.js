@@ -182,7 +182,7 @@ class Url extends React.Component {
                   </Modal.Header>
                   <Modal.Body>
                     {(() => {
-                      <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                      <Alert variant="success" onClose={() => setShow(false)} dismissible>
                         <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
                         <p>
                           Change this and that and try again. Duis mollis, est non commodo
@@ -190,7 +190,7 @@ class Url extends React.Component {
                           Cras mattis consectetur purus sit amet fermentum.
                         </p>
                       </Alert>
-                    })()}
+                    })()}s
                     <Form onSubmit={this.handleSubmit}>
                       <Form.Group controlId="editLongURL">
                         <Form.Label>Long URL</Form.Label>
