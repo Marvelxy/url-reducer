@@ -16,7 +16,7 @@ class Url extends React.Component {
       },
       oldLongURL: '',
       urlEditResponse: [],
-      urlEditAlert: false
+      urlEditAlert: false,
     }
 
   }
@@ -200,7 +200,7 @@ class Url extends React.Component {
                     })()}
                     <Form onSubmit={this.handleSubmit}>
                       <Form.Group controlId="editLongURL">
-                        <Form.Label>Long URL</Form.Label>
+                        <Form.Label>Long URL:</Form.Label>
                         <Form.Control as="textarea" rows="3" placeholder="Enter long URL"
                           value={this.state.editLongURL.url}
                           onChange={(e) => this.setState({editLongURL: {url: e.target.value}})} />
@@ -224,7 +224,7 @@ class Url extends React.Component {
                             return(
                               <button
                                 type="button"
-                                className="btn btn-light"
+                                className="btn btn-primary"
                                 disabled
                               >
                                 <span
