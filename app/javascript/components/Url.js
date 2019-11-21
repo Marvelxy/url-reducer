@@ -188,7 +188,7 @@ class Url extends React.Component {
                     {(() => {
                       if(this.state.urlEditAlert){
                         return(
-                          <Alert variant="success" onClose={() => setShow(false)} dismissible>
+                          <Alert variant="success" onClose={() => this.setState({urlEditAlert: false})} dismissible>
                             <Alert.Heading>Great!</Alert.Heading>
                             <p>
                               URL successfully reduced.
