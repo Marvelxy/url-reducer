@@ -72,7 +72,8 @@ class Url extends React.Component {
       editLongURL:{
         url: this.state.saved_urls[index].long
       },
-      oldLongURL: this.state.saved_urls[index].long
+      oldLongURL: this.state.saved_urls[index].long,
+      urlEditAlert: false
     })
   }
 
