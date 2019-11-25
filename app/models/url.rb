@@ -1,4 +1,6 @@
 class Url < ApplicationRecord
+  belongs_to :user
+  
   validates :short, uniqueness: {
     #message: "should happen once per year"
   }
