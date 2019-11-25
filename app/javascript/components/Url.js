@@ -104,7 +104,7 @@ class Url extends React.Component {
       .then(json => {
         //this.hideSpinner();
         if(json.status === 200){
-          this.setState({urlEditResponse: json, urlEditAlert: true});
+          this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
           //console.log(this.state.urlEditResponse);
           // Update the saved_urls state with new state.
           //console.log(this.state.current_url_on_edit);
@@ -123,8 +123,8 @@ class Url extends React.Component {
     }
     else{
       alert("URL can't be blank!");
+      this.setState({editUrlSpinner: false});
     }
-    this.setState({editUrlSpinner: false});
   }
 
 
