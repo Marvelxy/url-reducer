@@ -17,6 +17,7 @@ class Url extends React.Component {
       oldLongURL: '',
       urlEditResponse: [],
       urlEditAlert: false,
+      current_url_on_edit: '',
     }
 
   }
@@ -72,7 +73,8 @@ class Url extends React.Component {
         url: this.state.saved_urls[index].long
       },
       oldLongURL: this.state.saved_urls[index].long,
-      urlEditAlert: false
+      urlEditAlert: false,
+      current_url_on_edit: index
     })
   }
 
@@ -82,29 +84,47 @@ class Url extends React.Component {
 
   editUrl = () => {
     this.setState({editUrlSpinner: true});
-    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    if (this.state.editLongURL.url){
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
-    fetch('/edit-reduced-url.json', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-        'X-CSRF-Token': csrf
-      },
-      body: JSON.stringify({
-        oldLongURL: this.state.oldLongURL.trim(),
-        editedLongURL: this.state.editLongURL.url.trim(),
-      }) // body data type must match "Content-Type" header
-     })
-    .then(response => response.json())
-    .then(json => {
-      //this.hideSpinner();
-      if(json.status === 200){
-        this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
-        console.log(this.state.urlEditResponse);
-      }
-    });
+      fetch('/edit-reduced-url.json', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          'X-CSRF-Token': csrf
+        },
+        body: JSON.stringify({
+          oldLongURL: this.state.oldLongURL.trim(),
+          editedLongURL: this.state.editLongURL.url.trim(),
+        }) // body data type must match "Content-Type" header
+       })
+      .then(response => response.json())
+      .then(json => {
+        //this.hideSpinner();
+        if(json.status === 200){
+          this.setState({urlEditResponse: json, urlEditAlert: true});
+          //console.log(this.state.urlEditResponse);
+          // Update the saved_urls state with new state.
+          //console.log(this.state.current_url_on_edit);
+          //console.log(this.state.saved_urls);
+
+          let old_saved_urls = this.state.saved_urls;
+          let edited_url = this.state.current_url_on_edit
+          let new_saved_urls = old_saved_urls[edited_url].long = this.state.editLongURL.url.trim();
+          //console.log(new_saved_urls);
+          //console.log(old_saved_urls);
+          this.setState({saved_urls: old_saved_urls});
+
+          //console.log(this.state.saved_urls[this.state.current_url_on_edit]);
+        }
+      });
+    }
+    else{
+      alert("URL can't be blank!");
+    }
+    this.setState({editUrlSpinner: false});
   }
 
 
