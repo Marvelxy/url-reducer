@@ -105,19 +105,10 @@ class Url extends React.Component {
         //this.hideSpinner();
         if(json.status === 200){
           this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
-          //console.log(this.state.urlEditResponse);
-          // Update the saved_urls state with new state.
-          //console.log(this.state.current_url_on_edit);
-          //console.log(this.state.saved_urls);
-
           let old_saved_urls = this.state.saved_urls;
           let edited_url = this.state.current_url_on_edit
           let new_saved_urls = old_saved_urls[edited_url].long = this.state.editLongURL.url.trim();
-          //console.log(new_saved_urls);
-          //console.log(old_saved_urls);
           this.setState({saved_urls: old_saved_urls});
-
-          //console.log(this.state.saved_urls[this.state.current_url_on_edit]);
         }
       });
     }
