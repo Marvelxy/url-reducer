@@ -18,7 +18,8 @@ class Url extends React.Component {
       urlEditResponse: [],
       urlEditAlert: false,
       current_url_on_edit: '',
-      showRegenerateModal: false
+      showRegenerateModal: false,
+      currentUrlOnRegenerate: '',
     }
 
   }
@@ -122,6 +123,7 @@ class Url extends React.Component {
   regenerateURL = (event, index) => {
     this.setState({
       showRegenerateModal: true,
+      currentUrlOnRegenerate: index,
       /*editLongURL:{
         url: this.state.saved_urls[index].long
       },*/
@@ -129,6 +131,8 @@ class Url extends React.Component {
       //urlEditAlert: false,
       //current_url_on_edit: index
     });
+
+    console.log(index);
   }
 
 
@@ -142,8 +146,12 @@ class Url extends React.Component {
         {(() => {
           if (this.state.spinner === true){
             return(
-              <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
-                <span className="sr-only">Loading...</span>
+              <div className="row justify-content-center">
+                <div className="col-2">
+                  <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
               </div>
             )
           }
