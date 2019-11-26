@@ -67,7 +67,7 @@ class Url extends React.Component {
     });
   }
 
-  handleClose = () => this.setState({show: false, showRegenerateModal: false});
+  handleClose = () => this.setState({show: false});
   show = (event,index) => {
     this.setState({
       show: true,
@@ -258,13 +258,19 @@ class Url extends React.Component {
                     <Modal.Title>Regenerate Short URL</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-
+                    <div className="row justify-content-center">
+                      <div className="col-4">
+                        <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
+                          <span className="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                    </div>
                   </Modal.Body>
-                  <Modal.Footer>
+                  {/*<Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>
                       Close
                     </Button>
-                  </Modal.Footer>
+                  </Modal.Footer>*/}
                 </Modal>
               </div>
             )
