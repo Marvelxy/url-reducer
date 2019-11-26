@@ -254,8 +254,8 @@ class Url extends React.Component {
                 </Modal>
 
                 <Modal size="sm" show={this.state.showRegenerateModal} onHide={this.handleClose} centered>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Regenerate Short URL</Modal.Title>
+                  <Modal.Header>
+                    <Modal.Title>Regenerate Short URL...</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
                     <div className="row justify-content-center">
