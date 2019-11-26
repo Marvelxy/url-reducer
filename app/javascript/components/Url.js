@@ -119,7 +119,7 @@ class Url extends React.Component {
     }
   }
 
-  showRegenerateModal = (event, index) => {
+  regenerateURL = (event, index) => {
     this.setState({
       showRegenerateModal: true,
       /*editLongURL:{
@@ -169,7 +169,7 @@ class Url extends React.Component {
                         <button type="button" className="btn btn-light text-primary" onClick={(e) => this.show(e,index)}>
                           <i className="fas fa-edit fa-xs"></i> Edit
                         </button>
-                        <button type="button" className="btn btn-light text-success" onClick={(e) => this.showRegenerateModal(e,index)}>
+                        <button type="button" className="btn btn-light text-success" onClick={(e) => this.regenerateURL(e,index)}>
                           <i className="fas fa-redo fa-xs"></i> Regenerate
                         </button>
                         <button type="button" className="btn btn-light text-danger">
