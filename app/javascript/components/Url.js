@@ -18,6 +18,7 @@ class Url extends React.Component {
       urlEditResponse: [],
       urlEditAlert: false,
       current_url_on_edit: '',
+      showRegenerateModal: false
     }
 
   }
@@ -118,6 +119,18 @@ class Url extends React.Component {
     }
   }
 
+  showRegenerateModal = (event, index) => {
+    this.setState({
+      showRegenerateModal: true,
+      /*editLongURL:{
+        url: this.state.saved_urls[index].long
+      },*/
+      //oldLongURL: this.state.saved_urls[index].long,
+      //urlEditAlert: false,
+      //current_url_on_edit: index
+    });
+  }
+
 
   render () {
     const reduceInputStyle = {
@@ -156,7 +169,7 @@ class Url extends React.Component {
                         <button type="button" className="btn btn-light text-primary" onClick={(e) => this.show(e,index)}>
                           <i className="fas fa-edit fa-xs"></i> Edit
                         </button>
-                        <button type="button" className="btn btn-light text-success">
+                        <button type="button" className="btn btn-light text-success" onClick={(e) => this.showRegenerateModal(e,index)}>
                           <i className="fas fa-redo fa-xs"></i> Regenerate
                         </button>
                         <button type="button" className="btn btn-light text-danger">
@@ -224,6 +237,20 @@ class Url extends React.Component {
                         })()}
                       </div>
                     </Form>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={this.handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+
+                <Modal size="sm" show={this.state.showRegenerateModal} onHide={this.handleClose} centered>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Edit URL</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+
                   </Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>
