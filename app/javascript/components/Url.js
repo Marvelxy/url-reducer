@@ -66,7 +66,7 @@ class Url extends React.Component {
     });
   }
 
-  handleClose = () => this.setState({show: false});
+  handleClose = () => this.setState({show: false, showRegenerateModal: false});
   show = (event,index) => {
     this.setState({
       show: true,
