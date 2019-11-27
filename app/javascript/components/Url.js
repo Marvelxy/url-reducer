@@ -109,7 +109,8 @@ class Url extends React.Component {
           this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
           let old_saved_urls = this.state.saved_urls;
           let edited_url = this.state.current_url_on_edit
-          let new_saved_urls = old_saved_urls[edited_url].long = this.state.editLongURL.url.trim();
+          //let new_saved_urls = old_saved_urls[edited_url].long = this.state.editLongURL.url.trim();
+          let new_saved_urls = old_saved_urls[edited_url].long.trim();
           this.setState({saved_urls: old_saved_urls});
         }
       });
