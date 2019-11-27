@@ -89,6 +89,8 @@ class Url extends React.Component {
     if (this.state.editLongURL.url){
       const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
+      console.log(this.state);
+
       fetch('/edit-reduced-url.json', {
         method: 'POST',
         credentials: 'same-origin',
