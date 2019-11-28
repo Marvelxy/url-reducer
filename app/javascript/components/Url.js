@@ -144,6 +144,7 @@ class Url extends React.Component {
     });
 
     console.log(index);
+    console.log(this.state.saved_urls[index]);
   }
 
 
