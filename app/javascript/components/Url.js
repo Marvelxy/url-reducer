@@ -176,7 +176,7 @@ class Url extends React.Component {
         this.setState({regenerateSpinner: false});
         setTimeout(() => {
           this.setState({showRegenerateModal: false});
-        }, 500);
+        }, 700);
       }
     });
   }
