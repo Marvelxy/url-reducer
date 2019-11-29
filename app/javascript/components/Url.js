@@ -320,7 +320,8 @@ class Url extends React.Component {
                         else{
                           return(
                             <div className="text-center">
-                              Short URL Regenerated!
+                              {/* Short URL Regenerated! */}
+                              <i className="fas fa-check-circle fa-5x"></i>
                             </div>
                           )
                         }
