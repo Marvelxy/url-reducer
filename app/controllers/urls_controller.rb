@@ -91,15 +91,19 @@ class UrlsController < ApplicationController
 
   def regenerate_long_url
     url = Url.find(params[:oldShortURLId])
-    respond_to do |format|
-      format.html # index.html.erb
-      #format.xml  { render xml: @bookmarks }
-      format.json {
-        render json: {
-          new_short_url: url,
-          status: 200
+    url.short = Url.generate_url_id
+
+    if url.save
+      respond_to do |format|
+        format.html # index.html.erb
+        #format.xml  { render xml: @bookmarks }
+        format.json {
+          render json: {
+            new_short_url: url.short,
+            status: 200
+          }
         }
-      }
+      end
     end
   end
 end
