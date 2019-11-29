@@ -133,6 +133,8 @@ class Url extends React.Component {
   }
 
   regenerateURL = (event, index) => {
+    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+
     this.setState({
       showRegenerateModal: true,
       currentUrlOnRegenerate: index,
@@ -144,8 +146,35 @@ class Url extends React.Component {
       //current_url_on_edit: index
     });
 
-    console.log(index);
-    console.log(this.state.saved_urls[index]);
+    //console.log(index);
+    //console.log(this.state.saved_urls[index]);
+
+    fetch('/regenerate-long-url.json', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRF-Token': csrf
+      },
+      body: JSON.stringify({
+        oldShortURLId: this.state.saved_urls[index].id,
+        //editedLongURL: this.state.editLongURL.url.trim(),
+      }) // body data type must match "Content-Type" header
+     })
+    .then(response => response.json())
+    .then(json => {
+      //this.hideSpinner();
+      if(json.status === 200){
+        /*this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
+        let old_saved_urls = this.state.saved_urls;
+        let edited_url = this.state.current_url_on_edit
+        old_saved_urls[edited_url].long = this.state.editLongURL.url.trim();
+        this.setState({saved_urls: old_saved_urls});*/
+        console.log(json);
+        this.setState({regenerateSpinner: false});
+      }
+    });
   }
 
 

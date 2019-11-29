@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'r/:id' => 'urls#redirect_to_main_url'
   resources :urls
   post 'edit-reduced-url', to: 'urls#edit_reduced_url'
+  post 'regenerate-long-url', to: 'urls#regenerate_long_url'
 
 
 end
