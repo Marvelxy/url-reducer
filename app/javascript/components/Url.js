@@ -138,6 +138,7 @@ class Url extends React.Component {
     this.setState({
       showRegenerateModal: true,
       currentUrlOnRegenerate: index,
+      regenerateSpinner: true,
       /*editLongURL:{
         url: this.state.saved_urls[index].long
       },*/
@@ -166,13 +167,16 @@ class Url extends React.Component {
     .then(json => {
       //this.hideSpinner();
       if(json.status === 200){
-        /*this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
+        //this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
         let old_saved_urls = this.state.saved_urls;
-        let edited_url = this.state.current_url_on_edit
-        old_saved_urls[edited_url].long = this.state.editLongURL.url.trim();
-        this.setState({saved_urls: old_saved_urls});*/
-        console.log(json);
+        let edited_url = this.state.currentUrlOnRegenerate
+        old_saved_urls[edited_url].short = json.new_short_url;
+        this.setState({saved_urls: old_saved_urls});
+        //console.log(json);
         this.setState({regenerateSpinner: false});
+        setTimeout(() => {
+          this.setState({showRegenerateModal: false});
+        }, 5000);
       }
     });
   }
