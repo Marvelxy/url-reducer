@@ -183,8 +183,8 @@ class Url extends React.Component {
 
 
   render () {
-    const reduceInputStyle = {
-      backgroundColor: '#ffffff'
+    const regenerateSpinnerSuccessColor = {
+      color: '#1c9f64'
     };
 
     return (
@@ -321,7 +321,7 @@ class Url extends React.Component {
                           return(
                             <div className="text-center">
                               {/* Short URL Regenerated! */}
-                              <i className="fas fa-check-circle fa-5x"></i>
+                              <i className="fas fa-check-circle fa-5x" style={regenerateSpinnerSuccessColor}></i>
                             </div>
                           )
                         }
