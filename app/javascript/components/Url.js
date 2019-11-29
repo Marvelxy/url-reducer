@@ -20,6 +20,7 @@ class Url extends React.Component {
       current_url_on_edit: '',
       showRegenerateModal: false,
       currentUrlOnRegenerate: '',
+      regenerateSpinner: true,
     }
 
   }
@@ -270,13 +271,28 @@ class Url extends React.Component {
                     <Modal.Title>Regenerating short URL</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <div className="row justify-content-center">
-                      <div className="col-4">
-                        <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
-                          <span className="sr-only">Loading...</span>
-                        </div>
-                      </div>
-                    </div>
+                    {
+                      (() => {
+                        if(this.state.regenerateSpinner){
+                          return(
+                            <div className="row justify-content-center">
+                              <div className="col-4">
+                                <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
+                                  <span className="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        }
+                        else{
+                          return(
+                            <div className="text-center">
+                              Short URL Regenerated!
+                            </div>
+                          )
+                        }
+                      })()
+                    }
                   </Modal.Body>
                   {/*<Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>
