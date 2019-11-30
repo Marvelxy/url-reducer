@@ -21,6 +21,8 @@ class Url extends React.Component {
       showRegenerateModal: false,
       currentUrlOnRegenerate: '',
       regenerateSpinner: true,
+      currentUrlOnDelete: '',
+      deleteSpinner: true,
     }
 
   }
