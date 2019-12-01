@@ -86,7 +86,7 @@ class Url extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
   }
-
+  
   editUrl = () => {
     this.setState({editUrlSpinner: true});
 
