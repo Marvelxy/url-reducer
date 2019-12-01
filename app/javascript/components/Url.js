@@ -349,7 +349,7 @@ class Url extends React.Component {
 
                 <Modal size="sm" show={this.state.showDeleteModal} onHide={this.handleClose} centered>
                   <Modal.Header>
-                    <Modal.Title>Regenerating short URL</Modal.Title>
+                    <Modal.Title>Deleting URL</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
                     {
