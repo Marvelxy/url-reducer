@@ -23,6 +23,7 @@ class Url extends React.Component {
       regenerateSpinner: true,
       currentUrlOnDelete: '',
       deleteSpinner: true,
+      showDeleteModal: false,
     }
 
   }
@@ -86,7 +87,7 @@ class Url extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
   }
-  
+
   editUrl = () => {
     this.setState({editUrlSpinner: true});
 
@@ -183,6 +184,15 @@ class Url extends React.Component {
     });
   }
 
+  deleteURL = (event, index) => {
+    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+
+    this.setState({
+      showDeleteModal: true,
+      currentUrlOnRegenerate: index,
+      regenerateSpinner: true,
+    });
+  }
 
   render () {
     const regenerateSpinnerSuccessColor = {
@@ -228,7 +238,7 @@ class Url extends React.Component {
                         <button type="button" className="btn btn-light text-success" onClick={(e) => this.regenerateURL(e,index)}>
                           <i className="fas fa-redo fa-xs"></i> Regenerate
                         </button>
-                        <button type="button" className="btn btn-light text-danger">
+                        <button type="button" className="btn btn-light text-danger" onClick={(e) => this.deleteURL(e,index)}>
                           <i className="fas fa-trash fa-xs"></i> Delete
                         </button>
                       </div>
@@ -335,6 +345,37 @@ class Url extends React.Component {
                       Close
                     </Button>
                   </Modal.Footer>*/}
+                </Modal>
+
+                <Modal size="sm" show={this.state.showDeleteModal} onHide={this.handleClose} centered>
+                  <Modal.Header>
+                    <Modal.Title>Regenerating short URL</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    {
+                      (() => {
+                        if(this.state.regenerateSpinner){
+                          return(
+                            <div className="row justify-content-center">
+                              <div className="col-4">
+                                <div className="spinner-border" style={{width: '3rem', height: '3rem', color: '#676DA4'}} role="status">
+                                  <span className="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        }
+                        else{
+                          return(
+                            <div className="text-center">
+                              {/* Short URL Regenerated! */}
+                              <i className="fas fa-check-circle fa-5x" style={regenerateSpinnerSuccessColor}></i>
+                            </div>
+                          )
+                        }
+                      })()
+                    }
+                  </Modal.Body>
                 </Modal>
               </div>
             )
