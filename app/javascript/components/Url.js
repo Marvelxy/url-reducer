@@ -67,7 +67,8 @@ class Url extends React.Component {
     .then(response => response.json())
     .then(json => {
       this.hideSpinner();
-      this.setState({saved_urls: json, spinner: false});
+      let reversed_urls = json.reverse();
+      this.setState({saved_urls: reversed_urls, spinner: false});
     });
   }
 
