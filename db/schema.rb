@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20191029200423) do
 
-  create_table "urls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "urls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "short"
     t.string "long"
     t.integer "user_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20191029200423) do
     t.index ["short"], name: "index_urls_on_short", unique: true
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
