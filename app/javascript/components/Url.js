@@ -185,13 +185,16 @@ class Url extends React.Component {
   }
 
   deleteURL = (event, index) => {
-    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    let response = confirm("Are you sure you want to delete this?");
+    if (response == true) {
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
-    this.setState({
-      showDeleteModal: true,
-      currentUrlOnRegenerate: index,
-      regenerateSpinner: true,
-    });
+      this.setState({
+        showDeleteModal: true,
+        currentUrlOnRegenerate: index,
+        regenerateSpinner: true,
+      });
+    }
   }
 
   render () {
