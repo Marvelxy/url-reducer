@@ -106,4 +106,20 @@ class UrlsController < ApplicationController
       end
     end
   end
+
+  def delete_url
+    url = Url.find(params[:URLId])
+    if url.destroy
+      respond_to do |format|
+        format.html # index.html.erb
+        #format.xml  { render xml: @bookmarks }
+        format.json {
+          render json: {
+            message: 'URL deleted',
+            status: 200
+          }
+        }
+      end
+    end
+  end
 end

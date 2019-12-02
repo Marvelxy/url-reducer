@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :urls
   post 'edit-reduced-url', to: 'urls#edit_reduced_url'
   post 'regenerate-long-url', to: 'urls#regenerate_long_url'
+  post 'delete-url', to: 'urls#delete_url'
 
 
 end

@@ -178,8 +178,35 @@ class Url extends React.Component {
 
       this.setState({
         showDeleteModal: true,
-        currentUrlOnRegenerate: index,
+        currentUrlOnDelete: index,
         regenerateSpinner: true,
+      });
+
+      fetch('/delete-url.json', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          'X-CSRF-Token': csrf
+        },
+        body: JSON.stringify({
+          URLId: this.state.saved_urls[index].id,
+        }) // body data type must match "Content-Type" header
+      })
+      .then(response => response.json())
+      .then(json => {
+        if(json.status === 200){
+          let old_saved_urls = this.state.saved_urls;
+          //let url_to_delete = this.state.currentUrlOnDelete
+          //old_saved_urls[url_to_delete].short = json.new_short_url;
+          old_saved_urls.splice(index,1);
+          this.setState({saved_urls: old_saved_urls});
+          setTimeout(() => {
+            this.setState({showDeleteModal: false});
+          }, 700);
+          console.log(json)
+        }
       });
     }
   }
