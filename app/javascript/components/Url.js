@@ -142,16 +142,7 @@ class Url extends React.Component {
       showRegenerateModal: true,
       currentUrlOnRegenerate: index,
       regenerateSpinner: true,
-      /*editLongURL:{
-        url: this.state.saved_urls[index].long
-      },*/
-      //oldLongURL: this.state.saved_urls[index].long,
-      //urlEditAlert: false,
-      //current_url_on_edit: index
     });
-
-    //console.log(index);
-    //console.log(this.state.saved_urls[index]);
 
     fetch('/regenerate-long-url.json', {
       method: 'POST',
@@ -163,20 +154,16 @@ class Url extends React.Component {
       },
       body: JSON.stringify({
         oldShortURLId: this.state.saved_urls[index].id,
-        //editedLongURL: this.state.editLongURL.url.trim(),
       }) // body data type must match "Content-Type" header
      })
     .then(response => response.json())
     .then(json => {
       //this.hideSpinner();
       if(json.status === 200){
-        //this.setState({editUrlSpinner: false, urlEditResponse: json, urlEditAlert: true});
         let old_saved_urls = this.state.saved_urls;
         let edited_url = this.state.currentUrlOnRegenerate
         old_saved_urls[edited_url].short = json.new_short_url;
-        this.setState({saved_urls: old_saved_urls});
-        //console.log(json);
-        this.setState({regenerateSpinner: false});
+        this.setState({saved_urls: old_saved_urls, regenerateSpinner: false});
         setTimeout(() => {
           this.setState({showRegenerateModal: false});
         }, 700);
