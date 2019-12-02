@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "Associations" do
-    it { should have_many(:bookmarks)}
+    it { should have_many(:urls)}
   end
 
   describe "Validations" do
