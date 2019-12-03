@@ -8,6 +8,7 @@ class Url < ApplicationRecord
   validates :long, uniqueness: {
     message: "This URL has already been reduced by another user."
   }
+  validates_presence_of :long
 
   def self.generate_url_id
     url_id = rand(10000..99999)
