@@ -238,13 +238,16 @@ class Url extends React.Component {
                 {(() => {
                   if(this.state.saved_urls.length === 0){
                     return(
-                      <div className="row justify-content-center">
-                        
+                      <div>
+                        <div className="row justify-content-center">
                           <img 
                             src={require('../images/No_list_found.png')} 
                             alt="No reduced URL"
-                            className="col-7 border"
+                            className="col-7"
+                            style={{marginTop: '-3em'}}
                           />
+                        </div>
+                        <p className="text-danger text-center">You have no reduced URL!</p>
                       </div>
                     )
                   }
