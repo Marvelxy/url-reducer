@@ -29,7 +29,6 @@ RSpec.describe Url, type: :model do
 
   describe "Validations" do
     it { should validate_presence_of(:long) }
-    it { should validate_presence_of(:short) }
   end
 
   describe "Associations" do
