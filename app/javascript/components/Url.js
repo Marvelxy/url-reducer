@@ -244,7 +244,6 @@ class Url extends React.Component {
                             src={require('../images/No_list_found.png')} 
                             alt="No reduced URL"
                             className="col-7"
-                            style={{marginTop: '-3em'}}
                           />
                         </div>
                         <p className="text-danger text-center">
