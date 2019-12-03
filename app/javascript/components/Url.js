@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Modal, Button, Form, Alert} from 'react-bootstrap';
+//import  EmptyURLList from '../images/No_list_found.png';
 
 class Url extends React.Component {
   constructor(props) {
@@ -234,6 +235,57 @@ class Url extends React.Component {
           else{
             return(
               <div>
+                {(() => {
+                  if(this.state.saved_urls.length === 0){
+                    return(
+                      <div className="row justify-content-center">
+                        
+                          <img 
+                            src={require('../images/No_list_found.png')} 
+                            alt="No reduced URL"
+                            className="col-10"
+                          />
+                      </div>
+                    )
+                  }
+                  else{
+                    return (
+                      <div>
+                      {
+                        this.state.saved_urls.map((url, index) => (
+                          <div
+                            key={index}
+                            className="pt-3 pl-3 pr-3 pb-1 url-item"
+                          >
+                            <div>
+                              Long URL: <span className="">{url.long}</span>
+                            </div>
+                            <div>
+                              Short URL:&nbsp;
+                              <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
+                                http://url-reduzer.herokuapp.com/r/{url.short}
+                              </a>
+                            </div>
+                            <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+                              <button type="button" className="btn btn-light text-primary" onClick={(e) => this.show(e,index)}>
+                                <i className="fas fa-edit fa-xs"></i> Edit
+                              </button>
+                              <button type="button" className="btn btn-light text-success" onClick={(e) => this.regenerateURL(e,index)}>
+                                <i className="fas fa-redo fa-xs"></i> Regenerate
+                              </button>
+                              <button type="button" className="btn btn-light text-danger" onClick={(e) => this.deleteURL(e,index)}>
+                                <i className="fas fa-trash fa-xs"></i> Delete
+                              </button>
+                            </div>
+                          </div>
+                        ))
+                      }
+                      </div>
+                    )
+                  }
+                })()}
+
+                {/*}
                 {
                   this.state.saved_urls.map((url, index) => (
                     <div
@@ -262,7 +314,7 @@ class Url extends React.Component {
                       </div>
                     </div>
                   ))
-                }
+                }*/}
                 <Modal show={this.state.show} onHide={this.handleClose} centered>
                   <Modal.Header closeButton>
                     <Modal.Title>Edit URL</Modal.Title>
