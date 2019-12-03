@@ -21,8 +21,8 @@ RSpec.describe Url, type: :model do
   
   it "has one after adding one if user is not signed in" do
     Url.create!(
-      long: 'Test user',
-      short: '4.987558578, 2.87979778798',
+      short: 'joijjiijij',
+      long: 'oijijoijijijiojoijiji',
     )
     expect(Url.count).to eq 1
   end
@@ -31,7 +31,4 @@ RSpec.describe Url, type: :model do
     it { should validate_presence_of(:long) }
   end
 
-  describe "Associations" do
-    it { should belong_to(:user) }
-  end
 end
