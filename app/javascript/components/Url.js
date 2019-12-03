@@ -247,7 +247,9 @@ class Url extends React.Component {
                             style={{marginTop: '-3em'}}
                           />
                         </div>
-                        <p className="text-danger text-center">You have no reduced URL!</p>
+                        <p className="text-danger text-center">
+                          <strong>You have no reduced URL!</strong>
+                        </p>
                       </div>
                     )
                   }
