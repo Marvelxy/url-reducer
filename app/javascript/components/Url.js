@@ -243,7 +243,7 @@ class Url extends React.Component {
                           <img 
                             src={require('../images/No_list_found.png')} 
                             alt="No reduced URL"
-                            className="col-10"
+                            className="col-7 border"
                           />
                       </div>
                     )
