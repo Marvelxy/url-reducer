@@ -1,5 +1,4 @@
 import React from "react";
-import ReactNextPaging from "react-next-paging";
 
 const buttonStyles = {
   border: "1px solid #ccc",
@@ -12,35 +11,16 @@ const buttonStyles = {
 
 const Pagination = ({ itemsperpage, nocolumns, items, pagesspan }) => {
   return (
-    <ReactNextPaging
+    <div
       itemsperpage={itemsperpage}
       nocolumns={nocolumns}
       items={items}
       pagesspan={pagesspan}
     >
-      {({
-        getBackButtonProps,
-        getFastBackButtonProps,
-        getFwdButtonProps,
-        getFastFwdButtonProps,
-        getSelPageButtonProps,
-        nopages,
-        inipagearray,
-        pagesforarray,
-        currentpage,
-        noitems,
-        initialitem,
-        lastitem,
-        goBackBdisabled,
-        goFastBackBdisabled,
-        goFwdBdisabled,
-        goFastFwdBdisabled
-      }) => (
-        <div>
-          <p>llll</p>
-        </div>
-      )}
-    </ReactNextPaging>
+    {(() => {
+      //alert();
+    })()}
+    </div>
   );
 };
 
