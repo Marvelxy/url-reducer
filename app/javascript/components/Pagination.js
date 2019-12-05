@@ -20,6 +20,8 @@ const Pagination = ({ itemsperpage, nocolumns, items, pagesspan }) => {
     {(() => {
       //alert();
       return(
+
+        
         <div>
           <span>{'<'} Previous </span>
           <span className="float-right"> Next {'>'}</span>
