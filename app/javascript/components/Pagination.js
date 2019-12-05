@@ -36,61 +36,9 @@ const Pagination = ({ itemsperpage, nocolumns, items, pagesspan }) => {
         goFwdBdisabled,
         goFastFwdBdisabled
       }) => (
-        <tbody>
-          {items.slice(initialitem, lastitem).map((item, index) => {
-            return item;
-          })}
-          {noitems > 0
-            ? [
-                <tr key={"pagingrow" + 100}>
-                  <td colSpan={nocolumns} style={{ textAlign: "center" }}>
-                    <button
-                      style={buttonStyles}
-                      {...getFastBackButtonProps()}
-                      disabled={goFastBackBdisabled}
-                    >
-                      {"<<"}
-                    </button>
-                    <button
-                      style={buttonStyles}
-                      {...getBackButtonProps()}
-                      disabled={goBackBdisabled}
-                    >
-                      {"<"}
-                    </button>
-                    {Array.from(
-                      { length: pagesforarray },
-                      (v, i) => i + inipagearray
-                    ).map(page => {
-                      return (
-                        <button
-                          key={page}
-                          {...getSelPageButtonProps({ page: page })}
-                          disabled={currentpage == page}
-                        >
-                          {page}
-                        </button>
-                      );
-                    })}
-                    <button
-                      style={buttonStyles}
-                      {...getFwdButtonProps()}
-                      disabled={goFwdBdisabled}
-                    >
-                      {">"}
-                    </button>
-                    <button
-                      style={buttonStyles}
-                      {...getFastFwdButtonProps()}
-                      disabled={goFastFwdBdisabled}
-                    >
-                      {">>"}
-                    </button>
-                  </td>
-                </tr>
-              ]
-            : null}
-        </tbody>
+        <div>
+          <p>llll</p>
+        </div>
       )}
     </ReactNextPaging>
   );
