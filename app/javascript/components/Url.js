@@ -255,6 +255,7 @@ class Url extends React.Component {
                   else{
                     return (
                       <div>
+                        {/*
                         {
                           this.state.saved_urls.map((url, index) => (
                             <div
@@ -284,6 +285,7 @@ class Url extends React.Component {
                             </div>
                           ))
                         }
+                        */}
                         <Pagination
                           itemsperpage={5}
                           nocolumns={4}
