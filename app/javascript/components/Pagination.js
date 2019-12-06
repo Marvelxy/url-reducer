@@ -9,11 +9,10 @@ const buttonStyles = {
   width: 70
 };
 
-const Pagination = ({ itemsperpage, nocolumns, items, pagesspan }) => {
+const Pagination = ({ itemsperpage, items, pagesspan }) => {
   return (
     <div
       itemsperpage={itemsperpage}
-      nocolumns={nocolumns}
       items={items}
       pagesspan={pagesspan}
     >

@@ -288,7 +288,6 @@ class Url extends React.Component {
                         */}
                         <Pagination
                           itemsperpage={5}
-                          nocolumns={4}
                           items={this.state.saved_urls}
                           pagesspan={4}
                         />
