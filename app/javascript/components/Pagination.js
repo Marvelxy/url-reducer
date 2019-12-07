@@ -20,7 +20,7 @@ const Pagination = ({ itemsperpage, items, pagesspan }) => {
       return(
         <div>
           {
-            items.map((url, index) => (
+            items.slice(0, itemsperpage).map((url, index) => (
               <div
                 key={index}
                 className="pt-3 pl-3 pr-3 pb-1 url-item"
