@@ -9,6 +9,10 @@ const buttonStyles = {
   width: 70
 };
 
+this.state = {
+  paginationStart: 0
+};
+
 const Pagination = ({ itemsperpage, items, pagesspan }) => {
   return (
     <div
@@ -21,7 +25,7 @@ const Pagination = ({ itemsperpage, items, pagesspan }) => {
       return(
         <div>
           {
-            items.slice(paginationStart, itemsperpage).map((url, index) => (
+            items.slice(this.state.paginationStart, itemsperpage).map((url, index) => (
               <div
                 key={index}
                 className="pt-3 pl-3 pr-3 pb-1 url-item"
@@ -49,8 +53,8 @@ const Pagination = ({ itemsperpage, items, pagesspan }) => {
               </div>
             ))
           }
-          <span>{'<'} Previous </span>
-          <span className="float-right"> Next {'>'}</span>
+          <button>{'<'} Previous </button>
+          <button className="float-right"> Next {'>'}</button>
         </div>
       );
     })()}
