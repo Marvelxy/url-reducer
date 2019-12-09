@@ -4,15 +4,13 @@ class Pagination extends React.Component {
   constructor(props){
     super(props);
 
-    /*this.state = {
-      paginationStart: '',
-    };*/
-
-    this.paginationStart = 0;
+    this.state = {
+      paginatedURLs: [],
+    };
   }
 
   componentDidMount(){
-    this.setState({paginationStart: 0});
+    this.setState({paginatedURLs : this.props.items.slice(0, this.props.itemsperpage)});
   }
 
 
@@ -24,11 +22,13 @@ class Pagination extends React.Component {
       this.setState({paginationStart: this.state.paginationStart + itemsperpage});
       //this.setState({paginationStart: itemsperpage});
     }*/
-    this.paginationStart = this.paginationStart + itemsperpage;
+
+    this.setState({paginatedURLs : this.props.items.slice(3, itemsperpage)});
+    //this.paginationStart = this.paginationStart + itemsperpage;
 
 
     //console.log(this.state);
-    console.log(this.paginationStart);
+    console.log(itemsperpage);
     
   }
 
@@ -49,7 +49,7 @@ class Pagination extends React.Component {
         return(
           <div>
             {
-              this.props.items.slice(this.paginationStart, this.props.itemsperpage).map((url, index) => (
+              this.state.paginatedURLs.map((url, index) => (
                 <div
                   key={index}
                   className="pt-3 pl-3 pr-3 pb-1 url-item"
