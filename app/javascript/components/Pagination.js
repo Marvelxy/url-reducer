@@ -24,8 +24,8 @@ class Pagination extends React.Component {
       //this.setState({paginationStart: itemsperpage});
     }*/
 
-
-    this.setState({paginatedURLs : this.props.items.slice(3, itemsperpage)});
+    let newPaginatedItems = this.state.items.slice(3, itemsperpage);
+    this.setState({paginatedURLs: newPaginatedItems});
     //this.paginationStart = this.paginationStart + itemsperpage;
 
     console.log(this.state.items);
