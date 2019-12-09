@@ -11,11 +11,23 @@ class Pagination extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({paginatedURLs : this.props.items.slice(0, this.props.itemsperpage)});
+    this.setState((state, props) => {
+      return {paginatedURLs: state.items.slice(0, this.props.itemsperpage)};
+    });
+
+    //console.log(this.state.paginatedURLs);
+    //console.log(this.props.itemsperpage);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.paginatedURLs !== this.state.paginatedURLs) {
+      //this.setState({paginatedURLs: prevState.paginatedURLs});
+      console.log(this.state.paginatedURLs);
+    }
   }
 
 
-  nextItem = (e, itemsperpage) => {
+  nextItem = (e, itemsperpage, items) => {
     /*if(this.state.paginationStart === 0){
       this.setState({paginationStart: itemsperpage});
     }
@@ -23,14 +35,26 @@ class Pagination extends React.Component {
       this.setState({paginationStart: this.state.paginationStart + itemsperpage});
       //this.setState({paginationStart: itemsperpage});
     }*/
-
-    let newPaginatedItems = this.state.items.slice(3, itemsperpage);
-    this.setState({paginatedURLs: newPaginatedItems});
-    //this.paginationStart = this.paginationStart + itemsperpage;
-
     console.log(this.state.items);
-    console.log(this.state.paginatedURLs);
+    let URLList = items;
+    let newPaginatedItems = URLList.slice(3, itemsperpage + 3);
+    this.setState({paginatedURLs: newPaginatedItems});
+    /*this.setState((state, props) => {
+      return {paginatedURLs: state.items.slice(3, itemsperpage)};
+    });*/
+
+    /*this.setState((prevState) => {
+      return {
+        paginatedURLs: !prevState.paginatedURLs
+      };
+    }, () => {
+      //this.props.updateItem(this.state)
+      console.log(this.state.paginatedURLs);
+    });*/
+
     console.log(itemsperpage);
+    console.log(this.state.paginatedURLs);
+    console.log(items.slice(3, itemsperpage + 3));
     
   }
 
@@ -47,7 +71,7 @@ class Pagination extends React.Component {
     return (
       <div>
       {(() => {
-        
+        //console.log(this.paginatedURLs);
         return(
           <div>
             {
@@ -80,7 +104,7 @@ class Pagination extends React.Component {
               ))
             }
             <button>{'<'} Previous </button>
-            <button className="float-right" onClick={(e) => this.nextItem(e, this.props.itemsperpage)}> Next {'>'}</button>
+            <button className="float-right" onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}> Next {'>'}</button>
           </div>
         );
       })()}
