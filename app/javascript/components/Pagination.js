@@ -14,9 +14,6 @@ class Pagination extends React.Component {
     this.setState((state, props) => {
       return {paginatedURLs: state.items.slice(0, this.props.itemsperpage)};
     });
-
-    //console.log(this.state.paginatedURLs);
-    //console.log(this.props.itemsperpage);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -28,29 +25,11 @@ class Pagination extends React.Component {
 
 
   nextItem = (e, itemsperpage, items) => {
-    /*if(this.state.paginationStart === 0){
-      this.setState({paginationStart: itemsperpage});
-    }
-    else{
-      this.setState({paginationStart: this.state.paginationStart + itemsperpage});
-      //this.setState({paginationStart: itemsperpage});
-    }*/
     console.log(this.state.items);
     let URLList = items;
     let newPaginatedItems = URLList.slice(3, itemsperpage + 3);
     this.setState({paginatedURLs: newPaginatedItems});
-    /*this.setState((state, props) => {
-      return {paginatedURLs: state.items.slice(3, itemsperpage)};
-    });*/
-
-    /*this.setState((prevState) => {
-      return {
-        paginatedURLs: !prevState.paginatedURLs
-      };
-    }, () => {
-      //this.props.updateItem(this.state)
-      console.log(this.state.paginatedURLs);
-    });*/
+    
 
     console.log(itemsperpage);
     console.log(this.state.paginatedURLs);
