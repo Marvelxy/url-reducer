@@ -49,6 +49,28 @@ class Pagination extends React.Component {
     
   }
 
+  previousItem = (e, itemsperpage, items) => {
+    let newStart = this.paginationStart - itemsperpage;
+    let newEnd = this.itemsPerPage - itemsperpage;
+
+    console.log(newStart);
+    console.log(newEnd);
+
+    let newPaginatedItems = items.slice(newStart, newEnd);
+    this.setState({paginatedURLs: [...newPaginatedItems]});
+    //console.log(this.state.items.slice(3, 6));
+    /*this.setState((state, props) => {
+      return {paginatedURLs: state.items.slice(3, 6)};
+    });*/
+
+    
+
+    this.paginationStart = newStart;
+    this.itemsPerPage = newEnd;
+    
+    
+  }
+
   render (){
     const buttonStyles = {
       border: "1px solid #ccc",
@@ -94,7 +116,7 @@ class Pagination extends React.Component {
                 </div>
               ))
             }
-            <button>{'<'} Previous </button>
+            <button onClick={(e) => this.previousItem(e, this.props.itemsperpage, this.props.items)}>{'<'} Previous </button>
             <button className="float-right" onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}> Next {'>'}</button>
           </div>
         );
