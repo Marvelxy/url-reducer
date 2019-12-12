@@ -123,7 +123,14 @@ class Pagination extends React.Component {
             >
               {'<'} Previous 
             </button>
-            <button className="float-right" onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}> Next {'>'}</button>
+
+            <button 
+              className="float-right" 
+              onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}
+              disabled={this.state.items.length < this.itemsPerPage ? true : false}
+            > 
+              Next {'>'}
+            </button>
           </div>
         );
       })()}
