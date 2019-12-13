@@ -62,7 +62,6 @@ class Pagination extends React.Component {
     return (
       <div>
       {(() => {
-        //console.log(this.paginatedURLs);
         return(
           <div>
             {
