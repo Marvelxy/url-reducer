@@ -103,7 +103,7 @@ class Pagination extends React.Component {
                 </button>
               </div>
               <div className="col">
-                <p>jlkjlji</p>
+                <p className="text-center">jlkjlji</p>
               </div>
               <div className="col">
                 <button 
