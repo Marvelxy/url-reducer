@@ -93,21 +93,28 @@ class Pagination extends React.Component {
                 </div>
               ))
             }
-
-            <button 
-              onClick={(e) => this.previousItem(e, this.props.itemsperpage, this.props.items)} 
-              disabled={this.paginationStart < this.props.itemsperpage ? true : false}
-            >
-              {'<'} Previous 
-            </button>
-            <span>oijoiji</span>
-            <button 
-              className="float-right" 
-              onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}
-              disabled={this.state.items.length < this.itemsPerPage ? true : false}
-            > 
-              Next {'>'}
-            </button>
+            <div className="row">
+              <div className="col">
+                <button 
+                  onClick={(e) => this.previousItem(e, this.props.itemsperpage, this.props.items)} 
+                  disabled={this.paginationStart < this.props.itemsperpage ? true : false}
+                >
+                  {'<'} Previous 
+                </button>
+              </div>
+              <div className="col">
+                <p>jlkjlji</p>
+              </div>
+              <div className="col">
+                <button 
+                  className="float-right" 
+                  onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}
+                  disabled={this.state.items.length < this.itemsPerPage ? true : false}
+                > 
+                  Next {'>'}
+                </button>
+              </div>
+            </div>        
           </div>
         );
       })()}
