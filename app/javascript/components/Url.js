@@ -287,7 +287,7 @@ class Url extends React.Component {
                         }
                         */}
                         <Pagination
-                          itemsperpage={4}
+                          itemsperpage={5}
                           items={this.state.saved_urls}
                         />
                       </div>
