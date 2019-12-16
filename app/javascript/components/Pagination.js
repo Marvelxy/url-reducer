@@ -100,7 +100,7 @@ class Pagination extends React.Component {
             >
               {'<'} Previous 
             </button>
-
+            <span>oijoiji</span>
             <button 
               className="float-right" 
               onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}
