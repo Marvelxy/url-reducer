@@ -106,7 +106,7 @@ class Pagination extends React.Component {
                 <p className="text-center">
                   {
                     
-                    'Page' +
+                    'Page ' +
                     (Math.ceil(this.paginationStart / this.props.itemsperpage) + 1)
                     + ' of ' + 
                     Math.ceil(this.state.items.length / this.props.itemsperpage)
