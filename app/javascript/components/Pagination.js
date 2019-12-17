@@ -80,13 +80,13 @@ class Pagination extends React.Component {
                     </a>
                   </div>
                   <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
-                    <button type="button" className="btn btn-light text-primary" onClick={(e) => this.show(e,index)}>
+                    <button type="button" className="btn btn-light text-primary" onClick={(e) => this.props.show(e,index)}>
                       <i className="fas fa-edit fa-xs"></i> Edit
                     </button>
                     <button type="button" className="btn btn-light text-success" onClick={(e) => this.props.regenerateURL(e,index)}>
                       <i className="fas fa-redo fa-xs"></i> Regenerate
                     </button>
-                    <button type="button" className="btn btn-light text-danger" onClick={(e) => this.deleteURL(e,index)}>
+                    <button type="button" className="btn btn-light text-danger" onClick={(e) => this.props.deleteURL(e,index)}>
                       <i className="fas fa-trash fa-xs"></i> Delete
                     </button>
                   </div>

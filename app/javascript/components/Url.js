@@ -259,6 +259,8 @@ class Url extends React.Component {
                           itemsperpage={4}
                           items={this.state.saved_urls}
                           regenerateURL={this.regenerateURL}
+                          editURL={this.show}
+                          deleteURL={this.deleteURL}
                         />
                       </div>
                     )
