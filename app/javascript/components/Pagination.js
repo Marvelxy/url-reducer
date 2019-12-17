@@ -95,7 +95,8 @@ class Pagination extends React.Component {
             }
             <div className="row">
               <div className="col">
-                <button 
+                <button
+                  className="btn btn-primary btn-sm" 
                   onClick={(e) => this.previousItem(e, this.props.itemsperpage, this.props.items)} 
                   disabled={this.paginationStart < this.props.itemsperpage ? true : false}
                 >
