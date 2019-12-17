@@ -96,7 +96,7 @@ class Pagination extends React.Component {
             <div className="row mt-2">
               <div className="col">
                 <button
-                  className="btn btn-primary btn-sm" 
+                  className="btn my-button-primary btn-sm" 
                   onClick={(e) => this.previousItem(e, this.props.itemsperpage, this.props.items)} 
                   disabled={this.paginationStart < this.props.itemsperpage ? true : false}
                 >
@@ -106,7 +106,6 @@ class Pagination extends React.Component {
               <div className="col">
                 <p className="text-center">
                   {
-                    
                     'Page ' +
                     (Math.ceil(this.paginationStart / this.props.itemsperpage) + 1)
                     + ' of ' + 
@@ -116,7 +115,7 @@ class Pagination extends React.Component {
               </div>
               <div className="col">
                 <button 
-                  className="float-right btn btn-primary btn-sm" 
+                  className="float-right btn my-button-primary btn-sm" 
                   onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}
                   disabled={this.state.items.length <= this.itemsPerPage ? true : false}
                 > 
