@@ -24,6 +24,8 @@ class Pagination extends React.Component {
       //this.setState({paginatedURLs: prevState.paginatedURLs});
       //console.log(this.state.paginatedURLs);
     }
+
+    console.log(this.state.paginatedURLs);
   }
 
 
@@ -47,6 +49,11 @@ class Pagination extends React.Component {
 
     this.paginationStart = newStart;
     this.itemsPerPage = newEnd;
+  }
+
+  editURL = (e, index) => {
+    let returned = this.props.editURL(e,index);
+    console.log(returned);
   }
 
   render (){
@@ -80,7 +87,7 @@ class Pagination extends React.Component {
                     </a>
                   </div>
                   <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
-                    <button type="button" className="btn btn-light text-primary" onClick={(e) => this.props.editURL(e,index)}>
+                    <button type="button" className="btn btn-light text-primary" onClick={(e) => this.editURL(e, index)}>
                       <i className="fas fa-edit fa-xs"></i> Edit
                     </button>
                     <button type="button" className="btn btn-light text-success" onClick={(e) => this.props.regenerateURL(e,index)}>

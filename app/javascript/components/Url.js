@@ -83,7 +83,9 @@ class Url extends React.Component {
       oldLongURL: this.state.saved_urls[index].long,
       urlEditAlert: false,
       current_url_on_edit: index
-    })
+    });
+
+    return 'pop';
   }
 
   handleSubmit = (event) => {
