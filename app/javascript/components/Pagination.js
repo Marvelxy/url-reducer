@@ -93,7 +93,7 @@ class Pagination extends React.Component {
                 </div>
               ))
             }
-            <div className="row mt-2">
+            <div className="paginationStatus">
               <div className="col">
                 <button
                   className="btn my-button-primary btn-sm" 
