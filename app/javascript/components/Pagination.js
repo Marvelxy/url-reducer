@@ -94,7 +94,7 @@ class Pagination extends React.Component {
               ))
             }
             <div className="pagination-status">
-              <div className="col">
+              <div className="status-items">
                 <button
                   className="btn my-button-primary btn-sm" 
                   onClick={(e) => this.previousItem(e, this.props.itemsperpage, this.props.items)} 
@@ -103,7 +103,7 @@ class Pagination extends React.Component {
                   {'<'} Previous 
                 </button>
               </div>
-              <div className="col">
+              <div className="status-items">
                 <p className="text-center">
                   {
                     'Page ' +
@@ -113,7 +113,7 @@ class Pagination extends React.Component {
                   }
                 </p>
               </div>
-              <div className="col">
+              <div className="status-items">
                 <button 
                   className="float-right btn my-button-primary btn-sm" 
                   onClick={(e) => this.nextItem(e, this.props.itemsperpage, this.props.items)}
