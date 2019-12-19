@@ -25,6 +25,7 @@ class Url extends React.Component {
       currentUrlOnDelete: '',
       deleteSpinner: true,
       showDeleteModal: false,
+      currentPaginatedItems: []
     }
 
   }
