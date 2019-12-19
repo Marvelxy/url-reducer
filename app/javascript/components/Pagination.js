@@ -25,7 +25,7 @@ class Pagination extends React.Component {
       //console.log(this.state.paginatedURLs);
     }
 
-    console.log(this.state.paginatedURLs);
+    //console.log(this.props.paginatedURLs);
   }
 
 
@@ -52,7 +52,7 @@ class Pagination extends React.Component {
   }
 
   editURL = (e, index) => {
-    let returned = this.props.editURL(e,index);
+    let returned = this.props.editURL(e, index, this.state.paginatedURLs);
     console.log(returned);
   }
 
