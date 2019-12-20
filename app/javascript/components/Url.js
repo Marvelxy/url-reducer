@@ -284,8 +284,8 @@ class Url extends React.Component {
                             <TableHead>
                               <TableRow>
                                 <TableCell>Dessert (100g serving)</TableCell>
-                                <TableCell align="">Calories</TableCell>
-                                <TableCell align="">Fat&nbsp;(g)</TableCell>
+                                <TableCell>Calories</TableCell>
+                                <TableCell>Fat&nbsp;(g)</TableCell>
                                 <TableCell align="right">Carbs&nbsp;(g)</TableCell>
                                 <TableCell align="right">Protein&nbsp;(g)</TableCell>
                               </TableRow>
