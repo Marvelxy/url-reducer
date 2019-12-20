@@ -3,6 +3,8 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
+    "@material-ui/core": "^4.8.0",
+    "@material-ui/icons": "^4.5.1",
     "@rails/webpacker": "3.4",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.3.1",
