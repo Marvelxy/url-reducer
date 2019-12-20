@@ -3,6 +3,16 @@ import PropTypes from "prop-types";
 import {Modal, Button, Form, Alert} from 'react-bootstrap';
 import Pagination from "./Pagination";
 
+
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
 class Url extends React.Component {
   constructor(props) {
     super(props);
@@ -216,10 +226,12 @@ class Url extends React.Component {
     }
   }
 
+
   render () {
     const regenerateSpinnerSuccessColor = {
       color: '#1c9f64'
     };
+
 
     return (
       <div>
@@ -258,14 +270,45 @@ class Url extends React.Component {
                   else{
                     return (
                       <div>
-                        <Pagination
+                        {/*<Pagination
                           itemsperpage={4}
                           items={this.state.saved_urls}
                           regenerateURL={this.regenerateURL}
                           editURL={this.show}
                           deleteURL={this.deleteURL}
-                        />
+                        />*/}
+
+
+                        <TableContainer component={Paper}>
+                          <Table size="small" aria-label="a dense table">
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Dessert (100g serving)</TableCell>
+                                <TableCell align="right">Calories</TableCell>
+                                <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableBody>
+                              {this.state.saved_urls.map((url, index) => (
+                                <TableRow key={index}>
+                                  <TableCell component="th" scope="row">
+                                    
+                                  </TableCell>
+                                  <TableCell align="right">{url.long}</TableCell>
+                                  <TableCell align="right">{url.short}</TableCell>
+                                  <TableCell align="right"></TableCell>
+                                  <TableCell align="right"></TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </TableContainer>
+
                       </div>
+
+                      
                     )
                   }
                 })()}
