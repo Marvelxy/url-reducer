@@ -280,7 +280,7 @@ class Url extends React.Component {
 
 
                         <TableContainer component={Paper}>
-                          <Table size="small" aria-label="a dense table">
+                          <Table size="small" aria-label="a dense table" style={{minWidth: 650}}>
                             <TableHead>
                               <TableRow>
                                 <TableCell>Dessert (100g serving)</TableCell>
