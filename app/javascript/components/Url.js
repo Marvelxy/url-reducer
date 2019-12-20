@@ -296,8 +296,8 @@ class Url extends React.Component {
                                   <TableCell component="th" scope="row">
                                     
                                   </TableCell>
-                                  <TableCell align="">{url.long}</TableCell>
-                                  <TableCell align="">{url.short}</TableCell>
+                                  <TableCell>{url.long}</TableCell>
+                                  <TableCell>{url.short}</TableCell>
                                   <TableCell align="right"></TableCell>
                                   <TableCell align="right"></TableCell>
                                 </TableRow>
