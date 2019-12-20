@@ -284,8 +284,8 @@ class Url extends React.Component {
                             <TableHead>
                               <TableRow>
                                 <TableCell>Dessert (100g serving)</TableCell>
-                                <TableCell align="right">Calories</TableCell>
-                                <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                                <TableCell align="">Calories</TableCell>
+                                <TableCell align="">Fat&nbsp;(g)</TableCell>
                                 <TableCell align="right">Carbs&nbsp;(g)</TableCell>
                                 <TableCell align="right">Protein&nbsp;(g)</TableCell>
                               </TableRow>
@@ -296,8 +296,8 @@ class Url extends React.Component {
                                   <TableCell component="th" scope="row">
                                     
                                   </TableCell>
-                                  <TableCell align="right">{url.long}</TableCell>
-                                  <TableCell align="right">{url.short}</TableCell>
+                                  <TableCell align="">{url.long}</TableCell>
+                                  <TableCell align="">{url.short}</TableCell>
                                   <TableCell align="right"></TableCell>
                                   <TableCell align="right"></TableCell>
                                 </TableRow>
