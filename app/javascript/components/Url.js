@@ -283,19 +283,13 @@ class Url extends React.Component {
                           <Table size="small" aria-label="a dense table" style={{minWidth: 650}}>
                             <TableHead>
                               <TableRow>
-                                <TableCell>Dessert (100g serving)</TableCell>
-                                <TableCell>Calories</TableCell>
-                                <TableCell>Fat&nbsp;(g)</TableCell>
-                                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                                <TableCell>Long</TableCell>
+                                <TableCell>Short</TableCell>
                               </TableRow>
                             </TableHead>
                             <TableBody>
                               {this.state.saved_urls.map((url, index) => (
                                 <TableRow key={index}>
-                                  <TableCell component="th" scope="row">
-                                    
-                                  </TableCell>
                                   <TableCell>{url.long}</TableCell>
                                   <TableCell>
                                     <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
