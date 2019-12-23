@@ -36,9 +36,15 @@ class Url extends React.Component {
       currentUrlOnDelete: '',
       deleteSpinner: true,
       showDeleteModal: false,
-      currentPaginatedItems: []
+      currentPaginatedItems: [],
+      page: 0,
     }
 
+    //this.page = 0;
+    this.rowsPerPage = 5;
+    this.isSelected = name => selected.indexOf(name) !== -1;
+
+    //const [page, setPage] = React.useState(0);
   }
 
   componentDidMount(){
@@ -227,6 +233,30 @@ class Url extends React.Component {
     }
   }
 
+  handleChangePage = (event, newPage) => {
+    //setPage(newPage);
+    this.setState({ page: this.state.page + 1 });
+  };
+
+  handleChangeRowsPerPage = event => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  stableSort = (array, cmp) => {
+    const stabilizedThis = array.map((el, index) => [el, index]);
+    stabilizedThis.sort((a, b) => {
+      const order = cmp(a[0], b[0]);
+      if (order !== 0) return order;
+      return a[1] - b[1];
+    });
+    return stabilizedThis.map(el => el[0]);
+  };
+
+  getSorting = (order, orderBy) => {
+    return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
+  };
+
 
   render () {
     const regenerateSpinnerSuccessColor = {
@@ -288,7 +318,7 @@ class Url extends React.Component {
                                 <TableCell>Short</TableCell>
                               </TableRow>
                             </TableHead>
-                            <TableBody>
+                            {/*<TableBody>
                               {this.state.saved_urls.map((url, index) => (
                                 <TableRow key={index}>
                                   <TableCell>{url.long}</TableCell>
@@ -299,9 +329,50 @@ class Url extends React.Component {
                                   </TableCell>
                                 </TableRow>
                               ))}
+                            </TableBody>*/}
+
+                            <TableBody>
+                              {this.state.saved_urls.slice(this.state.page * this.rowsPerPage, this.state.page * this.rowsPerPage + this.rowsPerPage)
+                                .map((url, index) => {
+                                  //const isItemSelected = this.isSelected(row.name);
+                                  //const labelId = `enhanced-table-checkbox-${index}`;
+
+                                  return (
+                                    <TableRow
+                                      key={index}
+                                    >
+                                      {/*<TableCell padding="checkbox">
+                                        <Checkbox
+                                          checked={isItemSelected}
+                                          inputProps={{ 'aria-labelledby': labelId }}
+                                        />
+                                      </TableCell>*/}
+                                      <TableCell>{url.long}</TableCell>
+                                      <TableCell>
+                                        <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
+                                          http://url-reduzer.herokuapp.com/r/{url.short}
+                                        </a>
+                                      </TableCell>
+                                    </TableRow>
+                                  );
+                                })}
+                              {/*{emptyRows > 0 && (
+                                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                                  <TableCell colSpan={6} />
+                                </TableRow>
+                              )}*/}
                             </TableBody>
                           </Table>
                         </TableContainer>
+                        <TablePagination
+                          rowsPerPageOptions={[5, 10, 25]}
+                          component="div"
+                          count={this.state.saved_urls.length}
+                          rowsPerPage={5}
+                          page={this.state.page}
+                          onChangePage={this.handleChangePage}
+                          onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                        />
 
                       </div>
 
