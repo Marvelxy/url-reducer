@@ -12,6 +12,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import TablePagination from '@material-ui/core/TablePagination';
 
 class Url extends React.Component {
   constructor(props) {
@@ -280,7 +281,7 @@ class Url extends React.Component {
 
 
                         <TableContainer component={Paper}>
-                          <Table size="small" aria-label="a dense table" style={{minWidth: 650}}>
+                          <Table aria-label="a dense table" style={{minWidth: 650}}>
                             <TableHead>
                               <TableRow>
                                 <TableCell>Long</TableCell>
