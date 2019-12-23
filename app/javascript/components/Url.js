@@ -297,7 +297,11 @@ class Url extends React.Component {
                                     
                                   </TableCell>
                                   <TableCell>{url.long}</TableCell>
-                                  <TableCell>{url.short}</TableCell>
+                                  <TableCell>
+                                    <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
+                                      http://url-reduzer.herokuapp.com/r/{url.short}
+                                    </a>
+                                  </TableCell>
                                   <TableCell align="right"></TableCell>
                                   <TableCell align="right"></TableCell>
                                 </TableRow>
