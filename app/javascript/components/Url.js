@@ -346,6 +346,11 @@ class Url extends React.Component {
                                           <i className="fas fa-redo fa-xs"></i>
                                         </button>
                                       </TableCell>
+                                      <TableCell>
+                                        <button type="button" className="btn btn-light text-danger" onClick={(e) => this.props.deleteURL(e,index)}>
+                                          <i className="fas fa-trash fa-xs"></i> Delete
+                                        </button>
+                                      </TableCell>
                                     </TableRow>
                                   );
                                 })}
