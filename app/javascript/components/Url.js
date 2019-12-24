@@ -349,21 +349,6 @@ class Url extends React.Component {
                                           </button>
                                         </div>
                                       </TableCell>
-                                      <TableCell>
-                                        <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.editURL(e, index)}>
-                                          <i className="fas fa-edit fa-xs"></i>
-                                        </button>
-                                      </TableCell>
-                                      <TableCell>
-                                        <button type="button" className="btn btn-light text-success btn-sm" onClick={(e) => this.props.regenerateURL(e,index)}>
-                                          <i className="fas fa-redo fa-xs"></i>
-                                        </button>
-                                      </TableCell>
-                                      <TableCell>
-                                        <button type="button" className="btn btn-light text-danger btn-sm" onClick={(e) => this.props.deleteURL(e,index)}>
-                                          <i className="fas fa-trash fa-xs"></i>
-                                        </button>
-                                      </TableCell>
                                     </TableRow>
                                   );
                                 })}
