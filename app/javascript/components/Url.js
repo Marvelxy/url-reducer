@@ -230,7 +230,7 @@ class Url extends React.Component {
 
   handleChangePage = (event, newPage) => {
     //setPage(newPage);
-    this.setState({ page: this.state.page + 1 });
+    this.setState({ page: newPage });
   };
 
   handleChangeRowsPerPage = (event) => {
