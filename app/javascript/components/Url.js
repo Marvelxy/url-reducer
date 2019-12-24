@@ -38,13 +38,8 @@ class Url extends React.Component {
       showDeleteModal: false,
       currentPaginatedItems: [],
       page: 0,
+      rowsPerPage: 5
     }
-
-    //this.page = 0;
-    this.rowsPerPage = 5;
-    this.isSelected = name => selected.indexOf(name) !== -1;
-
-    //const [page, setPage] = React.useState(0);
   }
 
   componentDidMount(){
@@ -238,24 +233,12 @@ class Url extends React.Component {
     this.setState({ page: this.state.page + 1 });
   };
 
-  handleChangeRowsPerPage = event => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+  handleChangeRowsPerPage = (event) => {
+    //setRowsPerPage(parseInt(event.target.value, 10));
+    this.setState({ rowsPerPage: event.target.value});
+    //setPage(0);
   };
-
-  stableSort = (array, cmp) => {
-    const stabilizedThis = array.map((el, index) => [el, index]);
-    stabilizedThis.sort((a, b) => {
-      const order = cmp(a[0], b[0]);
-      if (order !== 0) return order;
-      return a[1] - b[1];
-    });
-    return stabilizedThis.map(el => el[0]);
-  };
-
-  getSorting = (order, orderBy) => {
-    return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
-  };
+  
 
 
   render () {
@@ -332,7 +315,7 @@ class Url extends React.Component {
                             </TableBody>*/}
 
                             <TableBody>
-                              {this.state.saved_urls.slice(this.state.page * this.rowsPerPage, this.state.page * this.rowsPerPage + this.rowsPerPage)
+                              {this.state.saved_urls.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage)
                                 .map((url, index) => {
                                   //const isItemSelected = this.isSelected(row.name);
                                   //const labelId = `enhanced-table-checkbox-${index}`;
@@ -368,7 +351,7 @@ class Url extends React.Component {
                           rowsPerPageOptions={[5, 10, 25]}
                           component="div"
                           count={this.state.saved_urls.length}
-                          rowsPerPage={5}
+                          rowsPerPage={this.state.rowsPerPage}
                           page={this.state.page}
                           onChangePage={this.handleChangePage}
                           onChangeRowsPerPage={this.handleChangeRowsPerPage}
