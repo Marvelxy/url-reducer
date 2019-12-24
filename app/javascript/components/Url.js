@@ -298,7 +298,6 @@ class Url extends React.Component {
                                 <TableCell>Long</TableCell>
                                 <TableCell>Short</TableCell>
                                 <TableCell></TableCell>
-                                <TableCell></TableCell>
                               </TableRow>
                             </TableHead>
                             {/*<TableBody>
