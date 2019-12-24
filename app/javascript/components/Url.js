@@ -292,11 +292,12 @@ class Url extends React.Component {
 
 
                         <TableContainer component={Paper}>
-                          <Table aria-label="a dense table" style={{minWidth: 650}}>
+                          <Table aria-label="a dense table" style={{maxWidth: '100%'}}>
                             <TableHead>
                               <TableRow>
                                 <TableCell>Long</TableCell>
                                 <TableCell>Short</TableCell>
+                                <TableCell></TableCell>
                               </TableRow>
                             </TableHead>
                             {/*<TableBody>
@@ -333,6 +334,11 @@ class Url extends React.Component {
                                         <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
                                           http://url-reduzer.herokuapp.com/r/{url.short}
                                         </a>
+                                      </TableCell>
+                                      <TableCell>
+                                        <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.editURL(e, index)}>
+                                          <i className="fas fa-edit fa-xs"></i>
+                                        </button>
                                       </TableCell>
                                     </TableRow>
                                   );
