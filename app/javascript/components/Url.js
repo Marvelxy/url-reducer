@@ -97,8 +97,6 @@ class Url extends React.Component {
       urlEditAlert: false,
       current_url_on_edit: index
     });
-
-    return 'pop';
   }
 
   handleSubmit = (event) => {
