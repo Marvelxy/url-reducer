@@ -337,6 +337,19 @@ class Url extends React.Component {
                                         </a>
                                       </TableCell>
                                       <TableCell>
+                                        <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+                                          <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.editURL(e, index)}>
+                                            <i className="fas fa-edit fa-xs"></i>
+                                          </button>
+                                          <button type="button" className="btn btn-light text-success btn-sm" onClick={(e) => this.props.regenerateURL(e,index)}>
+                                            <i className="fas fa-redo fa-xs"></i>
+                                          </button>
+                                          <button type="button" className="btn btn-light text-danger btn-sm" onClick={(e) => this.props.deleteURL(e,index)}>
+                                            <i className="fas fa-trash fa-xs"></i>
+                                          </button>
+                                        </div>
+                                      </TableCell>
+                                      <TableCell>
                                         <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.editURL(e, index)}>
                                           <i className="fas fa-edit fa-xs"></i>
                                         </button>
