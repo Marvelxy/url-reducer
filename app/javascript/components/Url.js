@@ -342,8 +342,8 @@ class Url extends React.Component {
                                         </button>
                                       </TableCell>
                                       <TableCell>
-                                        <button type="button" className="btn btn-light text-success" onClick={(e) => this.props.regenerateURL(e,index)}>
-                                          <i className="fas fa-redo fa-xs"></i> Regenerate
+                                        <button type="button" className="btn btn-light text-success btn-sm" onClick={(e) => this.props.regenerateURL(e,index)}>
+                                          <i className="fas fa-redo fa-xs"></i>
                                         </button>
                                       </TableCell>
                                     </TableRow>
