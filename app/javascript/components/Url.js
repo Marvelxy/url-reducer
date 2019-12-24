@@ -298,6 +298,7 @@ class Url extends React.Component {
                                 <TableCell>Long</TableCell>
                                 <TableCell>Short</TableCell>
                                 <TableCell></TableCell>
+                                <TableCell></TableCell>
                               </TableRow>
                             </TableHead>
                             {/*<TableBody>
@@ -338,6 +339,11 @@ class Url extends React.Component {
                                       <TableCell>
                                         <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.editURL(e, index)}>
                                           <i className="fas fa-edit fa-xs"></i>
+                                        </button>
+                                      </TableCell>
+                                      <TableCell>
+                                        <button type="button" className="btn btn-light text-success" onClick={(e) => this.props.regenerateURL(e,index)}>
+                                          <i className="fas fa-redo fa-xs"></i> Regenerate
                                         </button>
                                       </TableCell>
                                     </TableRow>
