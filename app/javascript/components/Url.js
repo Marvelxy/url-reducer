@@ -352,15 +352,6 @@ class Url extends React.Component {
                                           <DeleteIcon />
                                         </IconButton>
                                       </Tooltip>
-
-                                      <ButtonGroup size="small" variant="text" color="primary" aria-label="text primary button group">
-                                        <Button>
-                                          <i className="fas fa-edit fa-xs"></i>
-                                        </Button>
-                                        <Button>Two</Button>
-                                        <Button>Three</Button>
-                                      </ButtonGroup>
-
                                     </TableCell>
                                   </TableRow>
                                 );
