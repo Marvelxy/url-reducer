@@ -21,6 +21,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 // Material ui icons
 import DeleteIcon from '@material-ui/icons/Delete';
+import Refresh from '@material-ui/icons/Refresh';
+import Edit from '@material-ui/icons/Edit';
 
 // Material ui colors
 import { green } from '@material-ui/core/colors';
@@ -341,18 +343,18 @@ class Url extends React.Component {
                                     </TableCell>
                                     <TableCell>
                                       <Tooltip title="Edit URL">
-                                        <IconButton size="small" aria-label="delete" color="primary" onClick={(e) => this.show(e, index)}>
-                                          <DeleteIcon />
+                                        <IconButton size="small" aria-label="edit" color="primary" onClick={(e) => this.show(e, index)}>
+                                          <Edit />
                                         </IconButton>
                                       </Tooltip>
                                       <Tooltip title="Regenerate URL">
-                                        <IconButton 
-                                          size="small" 
-                                          aria-label="delete" 
+                                        <IconButton
+                                          size="small"
+                                          aria-label="regenerate" 
                                           onClick={(e) => this.regenerateURL(e,index)}
                                           style={{ color: green[500] }}
                                         >
-                                          <DeleteIcon />
+                                          <Refresh />
                                         </IconButton>
                                       </Tooltip>
                                       <Tooltip title="Delete URL">
