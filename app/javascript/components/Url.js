@@ -17,6 +17,9 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+import AddIcon from '@material-ui/icons/Add';
+//import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class Url extends React.Component {
   constructor(props) {
@@ -333,6 +336,22 @@ class Url extends React.Component {
                                       </a>
                                     </TableCell>
                                     <TableCell>
+                                      <Tooltip title="Delete">
+                                        <IconButton size="small" aria-label="delete">
+                                          <DeleteIcon />
+                                        </IconButton>
+                                      </Tooltip>
+                                      <Tooltip title="Delete">
+                                        <IconButton size="small" aria-label="delete">
+                                          <DeleteIcon />
+                                        </IconButton>
+                                      </Tooltip>
+                                      <Tooltip title="Delete">
+                                        <IconButton size="small" aria-label="delete">
+                                          <DeleteIcon />
+                                        </IconButton>
+                                      </Tooltip>
+
                                       <ButtonGroup size="small" variant="text" color="primary" aria-label="text primary button group">
                                         <Button>
                                           <i className="fas fa-edit fa-xs"></i>
