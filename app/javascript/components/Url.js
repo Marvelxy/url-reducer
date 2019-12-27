@@ -342,26 +342,28 @@ class Url extends React.Component {
                                       </a>
                                     </TableCell>
                                     <TableCell>
-                                      <Tooltip title="Edit URL">
-                                        <IconButton size="small" aria-label="edit" color="primary" onClick={(e) => this.show(e, index)}>
-                                          <Edit />
-                                        </IconButton>
-                                      </Tooltip>
-                                      <Tooltip title="Regenerate URL">
-                                        <IconButton
-                                          size="small"
-                                          aria-label="regenerate" 
-                                          onClick={(e) => this.regenerateURL(e,index)}
-                                          style={{ color: green[500] }}
-                                        >
-                                          <Refresh />
-                                        </IconButton>
-                                      </Tooltip>
-                                      <Tooltip title="Delete URL">
-                                        <IconButton size="small" aria-label="delete" color="secondary" onClick={(e) => this.deleteURL(e,index)}>
-                                          <DeleteIcon />
-                                        </IconButton>
-                                      </Tooltip>
+                                      
+                                        <Tooltip title="Edit URL">
+                                          <IconButton size="small" aria-label="edit" color="primary" onClick={(e) => this.show(e, index)}>
+                                            <Edit />
+                                          </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Regenerate URL">
+                                          <IconButton
+                                            size="small"
+                                            aria-label="regenerate" 
+                                            onClick={(e) => this.regenerateURL(e,index)}
+                                            style={{ color: green[500] }}
+                                          >
+                                            <Refresh />
+                                          </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Delete URL">
+                                          <IconButton size="small" aria-label="delete" color="secondary" onClick={(e) => this.deleteURL(e,index)}>
+                                            <DeleteIcon />
+                                          </IconButton>
+                                        </Tooltip>
+                                     
                                     </TableCell>
                                   </TableRow>
                                 );
