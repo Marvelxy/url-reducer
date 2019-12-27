@@ -332,15 +332,17 @@ class Url extends React.Component {
                                     </TableCell>
                                     <TableCell>
                                       <ButtonGroup size="small" variant="text" color="primary" aria-label="text primary button group">
-                                        <Button>One</Button>
+                                        <Button>
+                                          <i className="fas fa-edit fa-xs"></i>
+                                        </Button>
                                         <Button>Two</Button>
                                         <Button>Three</Button>
                                       </ButtonGroup>
 
-
+                                      
                                       <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
                                         <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.show(e, index)}>
-                                          <i className="fas fa-edit fa-xs"></i>
+                                          
                                         </button>
                                         <button type="button" className="btn btn-light text-success btn-sm" onClick={(e) => this.regenerateURL(e,index)}>
                                           <i className="fas fa-redo fa-xs"></i>
