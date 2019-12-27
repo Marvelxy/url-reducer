@@ -331,7 +331,7 @@ class Url extends React.Component {
                                       </a>
                                     </TableCell>
                                     <TableCell>
-                                      <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
+                                      <ButtonGroup size="small" variant="text" color="primary" aria-label="text primary button group">
                                         <Button>One</Button>
                                         <Button>Two</Button>
                                         <Button>Three</Button>
