@@ -343,7 +343,7 @@ class Url extends React.Component {
                                         </IconButton>
                                       </Tooltip>
                                       <Tooltip title="Regenerate URL">
-                                        <IconButton size="small" aria-label="delete">
+                                        <IconButton size="small" aria-label="delete" onClick={(e) => this.regenerateURL(e,index)}>
                                           <DeleteIcon />
                                         </IconButton>
                                       </Tooltip>
@@ -366,7 +366,7 @@ class Url extends React.Component {
                                         <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.show(e, index)}>
                                           
                                         </button>
-                                        <button type="button" className="btn btn-light text-success btn-sm" onClick={(e) => this.regenerateURL(e,index)}>
+                                        <button type="button" className="btn btn-light text-success btn-sm" >
                                           <i className="fas fa-redo fa-xs"></i>
                                         </button>
                                         <button type="button" className="btn btn-light text-danger btn-sm" onClick={(e) => this.deleteURL(e,index)}>
