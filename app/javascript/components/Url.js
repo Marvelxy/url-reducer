@@ -18,9 +18,12 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 //import AddIcon from '@material-ui/icons/Add';
+
+// Material ui icons
 import DeleteIcon from '@material-ui/icons/Delete';
 
-import green from '@material-ui/core/colors/green';
+// Material ui colors
+import { green } from '@material-ui/core/colors';
 
 class Url extends React.Component {
   constructor(props) {
@@ -343,7 +346,12 @@ class Url extends React.Component {
                                         </IconButton>
                                       </Tooltip>
                                       <Tooltip title="Regenerate URL">
-                                        <IconButton size="small" aria-label="delete" onClick={(e) => this.regenerateURL(e,index)}>
+                                        <IconButton 
+                                          size="small" 
+                                          aria-label="delete" 
+                                          onClick={(e) => this.regenerateURL(e,index)}
+                                          style={{ color: green[500] }}
+                                        >
                                           <DeleteIcon />
                                         </IconButton>
                                       </Tooltip>
