@@ -314,42 +314,36 @@ class Url extends React.Component {
                             </TableBody>*/}
 
                             <TableBody>
-                              {this.state.saved_urls.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage)
-                                .map((url, index) => {
+                              {this.state.saved_urls.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map((url, index) => {
                                   //const isItemSelected = this.isSelected(row.name);
                                   //const labelId = `enhanced-table-checkbox-${index}`;
 
-                                  return (
-                                    <TableRow
-                                      key={index}
-                                    >
-                                      <TableCell>{url.long}</TableCell>
-                                      <TableCell>
-                                        <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
-                                          http://url-reduzer.herokuapp.com/r/{url.short}
-                                        </a>
-                                      </TableCell>
-                                      <TableCell>
-                                        <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
-                                          <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.show(e, index)}>
-                                            <i className="fas fa-edit fa-xs"></i>
-                                          </button>
-                                          <button type="button" className="btn btn-light text-success btn-sm" onClick={(e) => this.regenerateURL(e,index)}>
-                                            <i className="fas fa-redo fa-xs"></i>
-                                          </button>
-                                          <button type="button" className="btn btn-light text-danger btn-sm" onClick={(e) => this.deleteURL(e,index)}>
-                                            <i className="fas fa-trash fa-xs"></i>
-                                          </button>
-                                        </div>
-                                      </TableCell>
-                                    </TableRow>
-                                  );
-                                })}
-                              {/*{emptyRows > 0 && (
-                                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                                  <TableCell colSpan={6} />
-                                </TableRow>
-                              )}*/}
+                                return (
+                                  <TableRow
+                                    key={index}
+                                  >
+                                    <TableCell>{url.long}</TableCell>
+                                    <TableCell>
+                                      <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
+                                        http://url-reduzer.herokuapp.com/r/{url.short}
+                                      </a>
+                                    </TableCell>
+                                    <TableCell>
+                                      <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+                                        <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.show(e, index)}>
+                                          <i className="fas fa-edit fa-xs"></i>
+                                        </button>
+                                        <button type="button" className="btn btn-light text-success btn-sm" onClick={(e) => this.regenerateURL(e,index)}>
+                                          <i className="fas fa-redo fa-xs"></i>
+                                        </button>
+                                        <button type="button" className="btn btn-light text-danger btn-sm" onClick={(e) => this.deleteURL(e,index)}>
+                                          <i className="fas fa-trash fa-xs"></i>
+                                        </button>
+                                      </div>
+                                    </TableCell>
+                                  </TableRow>
+                                );
+                              })}
                             </TableBody>
                           </Table>
                         </TableContainer>
