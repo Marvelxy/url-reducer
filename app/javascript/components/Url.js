@@ -17,9 +17,10 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import AddIcon from '@material-ui/icons/Add';
 //import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
+
+import green from '@material-ui/core/colors/green';
 
 class Url extends React.Component {
   constructor(props) {
@@ -336,18 +337,18 @@ class Url extends React.Component {
                                       </a>
                                     </TableCell>
                                     <TableCell>
-                                      <Tooltip title="Delete">
+                                      <Tooltip title="Edit URL">
+                                        <IconButton size="small" aria-label="delete" color="primary">
+                                          <DeleteIcon />
+                                        </IconButton>
+                                      </Tooltip>
+                                      <Tooltip title="Regenerate URL">
                                         <IconButton size="small" aria-label="delete">
                                           <DeleteIcon />
                                         </IconButton>
                                       </Tooltip>
-                                      <Tooltip title="Delete">
-                                        <IconButton size="small" aria-label="delete">
-                                          <DeleteIcon />
-                                        </IconButton>
-                                      </Tooltip>
-                                      <Tooltip title="Delete">
-                                        <IconButton size="small" aria-label="delete">
+                                      <Tooltip title="Delete URL">
+                                        <IconButton size="small" aria-label="delete" color="secondary">
                                           <DeleteIcon />
                                         </IconButton>
                                       </Tooltip>
