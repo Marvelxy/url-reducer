@@ -338,7 +338,7 @@ class Url extends React.Component {
                                     </TableCell>
                                     <TableCell>
                                       <Tooltip title="Edit URL">
-                                        <IconButton size="small" aria-label="delete" color="primary">
+                                        <IconButton size="small" aria-label="delete" color="primary" onClick={(e) => this.show(e, index)}>
                                           <DeleteIcon />
                                         </IconButton>
                                       </Tooltip>
@@ -348,7 +348,7 @@ class Url extends React.Component {
                                         </IconButton>
                                       </Tooltip>
                                       <Tooltip title="Delete URL">
-                                        <IconButton size="small" aria-label="delete" color="secondary">
+                                        <IconButton size="small" aria-label="delete" color="secondary" onClick={(e) => this.deleteURL(e,index)}>
                                           <DeleteIcon />
                                         </IconButton>
                                       </Tooltip>
@@ -361,18 +361,6 @@ class Url extends React.Component {
                                         <Button>Three</Button>
                                       </ButtonGroup>
 
-
-                                      <div className="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
-                                        <button type="button" className="btn btn-light text-primary btn-sm" onClick={(e) => this.show(e, index)}>
-                                          
-                                        </button>
-                                        <button type="button" className="btn btn-light text-success btn-sm" >
-                                          <i className="fas fa-redo fa-xs"></i>
-                                        </button>
-                                        <button type="button" className="btn btn-light text-danger btn-sm" onClick={(e) => this.deleteURL(e,index)}>
-                                          <i className="fas fa-trash fa-xs"></i>
-                                        </button>
-                                      </div>
                                     </TableCell>
                                   </TableRow>
                                 );
