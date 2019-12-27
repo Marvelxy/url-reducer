@@ -323,12 +323,6 @@ class Url extends React.Component {
                                     <TableRow
                                       key={index}
                                     >
-                                      {/*<TableCell padding="checkbox">
-                                        <Checkbox
-                                          checked={isItemSelected}
-                                          inputProps={{ 'aria-labelledby': labelId }}
-                                        />
-                                      </TableCell>*/}
                                       <TableCell>{url.long}</TableCell>
                                       <TableCell>
                                         <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
