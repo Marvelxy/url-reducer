@@ -62,13 +62,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 97vh;
+      flex-direction: column;
     }
 
     .image-wrapper{
-      background: url("images/Page_not_found.png") center center/cover #fff;
-      height: 50vh;
-      width: 50%;
+      background: url("images/Page_not_found.png") center center/cover;
+      height: 60vh;
+      width: 60%;
+    }
+
+    div h1{
+      color: #fff;
+    }
+
+    .text-wrapper{
+      margin-top: 2em;
+    }
+
+    a{
+      color: #fff;
+      font-size: 20px;
     }
   </style>
 </head>
@@ -87,8 +101,13 @@
 
 <body>
   <div id="main">
-    
+    <div class="">
+      <h1>Page not found!</h1>
+    </div>
     <div class="image-wrapper"></div>
+    <div class="text-wrapper">
+      <a href="/">Return to safty!</a>
+    </div>
   </div>
 </body>
 </html>
