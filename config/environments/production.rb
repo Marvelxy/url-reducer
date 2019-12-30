@@ -91,4 +91,7 @@ config.webpacker.check_yarn_integrity = false
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Serve static files
+  config.serve_static_assets = true
 end
