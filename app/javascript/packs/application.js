@@ -32,7 +32,6 @@ import '../src/maps.scss';
 import '../src/users.scss';
 import '../src/urls.scss';
 import '../src/bookmarks.scss';
-import '../images/map project logo.svg'
 
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
