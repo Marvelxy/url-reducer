@@ -21,7 +21,6 @@ import Rails from 'rails-ujs'
 import 'bootstrap/dist/css/bootstrap';
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/js/all.js'
-//import 'marker-animate-unobtrusive'
 
 import 'bookmarks'
 import 'app'
@@ -29,13 +28,12 @@ import 'app'
 
 Rails.start();
 
-//require.context('../images/', true);
 import '../src/maps.scss';
 import '../src/users.scss';
 import '../src/urls.scss';
-//import '../src/floating-labels.css';
 import '../src/bookmarks.scss';
 import '../images/map project logo.svg'
+
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
