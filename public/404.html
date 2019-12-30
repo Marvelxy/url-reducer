@@ -52,16 +52,39 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
   </style>
+
+  <style>
+    #main{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .image-wrapper{
+      background: url("images/Page_not_found.png") center center/cover;
+      height: 50vh;
+      width: 50%;
+    }
+  </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
+<!-- This file lives in public/404.html -->
+
+<!--<body class="rails-default-error-page">
   <div class="dialog">
     <div>
       <h1>The page you were looking for doesn't exist.</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
+  </div>
+</body>-->
+
+<body>
+  <div id="main">
+    
+    <div class="image-wrapper"></div>
   </div>
 </body>
 </html>
