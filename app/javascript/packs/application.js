@@ -32,6 +32,8 @@ import '../src/maps.scss';
 import '../src/users.scss';
 import '../src/urls.scss';
 import '../src/bookmarks.scss';
+import '../src/errors.scss';
+//import '../images/Page_not_found.png';
 
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
