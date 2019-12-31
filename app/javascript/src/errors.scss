@@ -2,12 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .four-zero-four{
-    background: url("../images\\Page_not_found.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px #EF2222;
-    height: 45px;
-    width: 256px;
+    background: url("../images\\Page_not_found.png") center center/cover;
+    max-width: 50%;
+    height: 80vh;
   }
