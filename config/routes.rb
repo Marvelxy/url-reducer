@@ -36,5 +36,10 @@ Rails.application.routes.draw do
   post 'regenerate-long-url', to: 'urls#regenerate_long_url'
   post 'delete-url', to: 'urls#delete_url'
 
+  # Error pages
+  get '/404', to: "errors#not_found"
+  get '/422', to: "errors#unacceptable"
+  get '/500', to: "errors#internal_error"
+
 
 end
