@@ -26,11 +26,11 @@
   </head>
 
   <body>
-    <!--
-      <% if request.env['PATH_INFO'] != '/' %>
-        <%= render "maps/nav_component" %>
-      <% end %>
-    -->
+   
+    <% if request.env['PATH_INFO'] != '/' %>
+      <%= render "maps/nav_component" %>
+    <% end %>
+    
 
     <%= yield %>
 
