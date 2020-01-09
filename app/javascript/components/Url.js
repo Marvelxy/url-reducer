@@ -226,8 +226,6 @@ class Url extends React.Component {
       .then(json => {
         if(json.status === 200){
           let old_saved_urls = this.state.saved_urls;
-          //let url_to_delete = this.state.currentUrlOnDelete
-          //old_saved_urls[url_to_delete].short = json.new_short_url;
           old_saved_urls.splice(index,1);
           this.setState({saved_urls: old_saved_urls});
           setTimeout(() => {
@@ -245,9 +243,7 @@ class Url extends React.Component {
   };
 
   handleChangeRowsPerPage = (event) => {
-    //setRowsPerPage(parseInt(event.target.value, 10));
     this.setState({ rowsPerPage: event.target.value});
-    //setPage(0);
   };
   
 
@@ -295,15 +291,6 @@ class Url extends React.Component {
                   else{
                     return (
                       <div>
-                        {/*<Pagination
-                          itemsperpage={4}
-                          items={this.state.saved_urls}
-                          regenerateURL={this.regenerateURL}
-                          editURL={this.show}
-                          deleteURL={this.deleteURL}
-                        />*/}
-
-
                         <TableContainer component={Paper}>
                           <Table aria-label="a dense table" style={{maxWidth: '100%'}}>
                             <TableHead>
@@ -313,18 +300,6 @@ class Url extends React.Component {
                                 <TableCell></TableCell>
                               </TableRow>
                             </TableHead>
-                            {/*<TableBody>
-                              {this.state.saved_urls.map((url, index) => (
-                                <TableRow key={index}>
-                                  <TableCell>{url.long}</TableCell>
-                                  <TableCell>
-                                    <a href={"http://url-reduzer.herokuapp.com/r/" + url.short}>
-                                      http://url-reduzer.herokuapp.com/r/{url.short}
-                                    </a>
-                                  </TableCell>
-                                </TableRow>
-                              ))}
-                            </TableBody>*/}
 
                             <TableBody>
                               {this.state.saved_urls.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map((url, index) => {
@@ -380,10 +355,7 @@ class Url extends React.Component {
                           onChangePage={this.handleChangePage}
                           onChangeRowsPerPage={this.handleChangeRowsPerPage}
                         />
-
                       </div>
-
-                      
                     )
                   }
                 })()}
