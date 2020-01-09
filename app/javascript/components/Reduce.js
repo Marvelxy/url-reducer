@@ -65,7 +65,8 @@ class Reduce extends React.Component {
 
   render () {
     const reduceInputStyle = {
-      backgroundColor: '#ffffff'
+      backgroundColor: '#ffffff',
+      border: '1px solid #ffffff',
     };
 
     const reduceButtonStyle = {
