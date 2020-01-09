@@ -24,8 +24,11 @@
             <li>Paste your long URL on the input box.</li>
             <li>Click the reduce button to reduce the URL and get a short version</li>
           </ul>
-          <p class="ml-4">Additionally, you can <a href="#">create an account</a>, so you can save and manage your reduced URLs</p>
-          <p class="text-center" style="color: #676DA4;">Creating an account is free! ;) </p>
+          
+          <% if !user_signed_in? %>
+            <p class="ml-4">Additionally, you can <a href="#">create an account</a>, so you can save and manage your reduced URLs</p>
+            <p class="text-center" style="color: #676DA4;">Creating an account is free! ;) </p>
+          <% end %>
         </div>
       </div>
     </div>
