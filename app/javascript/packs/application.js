@@ -41,7 +41,7 @@ ReactRailsUJS.useContext(componentRequireContext);
 
 window.addEventListener('scroll', () => {
     if(window.scrollY > 150) {
-        document.querySelector('nav').style.backgroundColor = '#ffffff';
+        document.querySelector('nav').style.backgroundColor = '#383c61';
         document.querySelector('nav').style.color = '#676DA4';
     }
     else {
