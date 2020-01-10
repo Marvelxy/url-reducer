@@ -38,3 +38,13 @@ import '../src/errors.scss';
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
+
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 150) {
+        document.querySelector('nav').style.backgroundColor = 'blue';
+    }
+    else {
+        //document.querySelector('nav').style.opacity = 1;
+        document.querySelector('nav').style.backgroundColor = '';
+    }
+});
