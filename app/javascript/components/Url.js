@@ -164,39 +164,42 @@ class Url extends React.Component {
   }
 
   regenerateURL = (event, index) => {
-    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    let response = confirm("Are you sure you want to regenerate this URL?");
+    if (response == true) {
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
-    this.setState({
-      showRegenerateModal: true,
-      currentUrlOnRegenerate: index,
-      regenerateSpinner: true,
-    });
+      this.setState({
+        showRegenerateModal: true,
+        currentUrlOnRegenerate: index,
+        regenerateSpinner: true,
+      });
 
-    fetch('/regenerate-long-url.json', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-        'X-CSRF-Token': csrf
-      },
-      body: JSON.stringify({
-        oldShortURLId: this.state.saved_urls[index].id,
-      }) // body data type must match "Content-Type" header
-     })
-    .then(response => response.json())
-    .then(json => {
-      //this.hideSpinner();
-      if(json.status === 200){
-        let old_saved_urls = this.state.saved_urls;
-        let edited_url = this.state.currentUrlOnRegenerate
-        old_saved_urls[edited_url].short = json.new_short_url;
-        this.setState({saved_urls: old_saved_urls, regenerateSpinner: false});
-        setTimeout(() => {
-          this.setState({showRegenerateModal: false});
-        }, 700);
-      }
-    });
+      fetch('/regenerate-long-url.json', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          'X-CSRF-Token': csrf
+        },
+        body: JSON.stringify({
+          oldShortURLId: this.state.saved_urls[index].id,
+        }) // body data type must match "Content-Type" header
+      })
+      .then(response => response.json())
+      .then(json => {
+        //this.hideSpinner();
+        if(json.status === 200){
+          let old_saved_urls = this.state.saved_urls;
+          let edited_url = this.state.currentUrlOnRegenerate
+          old_saved_urls[edited_url].short = json.new_short_url;
+          this.setState({saved_urls: old_saved_urls, regenerateSpinner: false});
+          setTimeout(() => {
+            this.setState({showRegenerateModal: false});
+          }, 700);
+        }
+      });
+    }
   }
 
   deleteURL = (event, index) => {
